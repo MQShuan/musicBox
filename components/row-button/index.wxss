@@ -1,0 +1,47 @@
+/* components/row-button/index.wxss */
+
+.container{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: 56px;
+  border-bottom: 1rpx solid rgb(237,239,241);
+}
+
+.row-view-block-right-button{
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  display: flex;
+  height: 100%;
+}
+.row-view-block-left{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  flex:6;
+  align-items: center;
+}
+.row-view-block-left-name{
+  flex:4;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.row-view-block-left-music-name{
+  font-size: 26rpx;
+  flex: 1;
+}
+.row-view-block-left-author-name{
+  font-size: 18rpx;
+  flex: 1;
+}
+.row-view-block-left-icon{
+  display: flex;
+  flex:1;
+  margin: 0;
+  padding: 0;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

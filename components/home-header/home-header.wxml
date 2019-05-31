@@ -1,0 +1,18 @@
+<!--components/home-header/home-header.wxml-->
+<view class='container'>
+  <view class='container-button'>
+    <button>
+      ⭐
+    </button>
+  </view>
+  <view class='center-container'>
+    <button class='center-container-button' bindtap='toAccountMusic'>⭐</button>
+    <button class='center-container-button' bindtap='toIndex'>⭐</button>
+    <button class='center-container-button'>⭐</button>
+  </view>
+  <view class='container-button container-button-right'>
+    <button>
+      ⭐
+    </button>
+  </view>
+</view>

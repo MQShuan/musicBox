@@ -1,0 +1,37 @@
+/* components/home-header/home-header.wxss */
+
+.container{
+  height: 60px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: rgb(198, 47, 47);
+}
+.center-container{
+  display: flex;
+  flex-wrap: nowrap;
+  flex:3;
+  justify-content: space-around;
+  background-color: rgb(198, 47, 47);
+}
+.center-container-button{
+  flex:1;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background-color: rgb(198, 47, 47);
+}
+.container-button{
+  flex:1;
+  align-items: center;
+  display: flex;
+  
+}
+.container-button button{
+  background-color: rgb(198, 47, 47);
+}
+.container-button-right{
+  justify-content: flex-end;
+}

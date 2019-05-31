@@ -1,0 +1,26 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/accountMusic/accountMusic"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/accountMusic/accountMusic",
+        "text": "accountMusic"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "index"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
