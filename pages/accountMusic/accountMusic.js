@@ -5,9 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    songList:true,
   },
-
+  showSongList(event){
+    this.setData({
+      songList:!this.data.songList,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

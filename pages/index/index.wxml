@@ -1,8 +1,5 @@
 <!--index.wxml-->
 <view class="container">
 <home-header></home-header>
-<row-button></row-button>
-<row-button></row-button>
-<row-button></row-button>
-
+<main-index/>
 </view>

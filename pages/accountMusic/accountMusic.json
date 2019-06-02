@@ -1,3 +1,4 @@
 {
-  "usingComponents": {"home-header":"../../components/home-header/home-header"}
+  "usingComponents": {"home-header":"../../components/home-header/home-header",
+                      "row-button":"../../components/row-button/index"}
 }

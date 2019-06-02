@@ -4,7 +4,7 @@
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  height: 56px;
+  height: 60px;
   border-bottom: 1rpx solid rgb(237,239,241);
 }
 
@@ -21,6 +21,7 @@
   justify-content: flex-start;
   flex:6;
   align-items: center;
+  height: 100%;
 }
 .row-view-block-left-name{
   flex:4;
@@ -30,11 +31,12 @@
 }
 .row-view-block-left-music-name{
   font-size: 26rpx;
-  flex: 1;
+
 }
 .row-view-block-left-author-name{
   font-size: 18rpx;
-  flex: 1;
+  display: flex;
+  color: gray;
 }
 .row-view-block-left-icon{
   display: flex;
@@ -44,4 +46,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+left-image{
+  width: 56px;
+  height: 56px;
 }

@@ -12,6 +12,22 @@ Component({
       type:Boolean,
       value:false,
     },
+    modalFunc:{
+      type:Function,
+      value:null,
+    },
+    name:{
+      type:String,
+      value:"一级名字",
+    },
+    sub_name:{
+      type:String,
+      value:'副标题名字',
+    },
+    leftImage:{
+      type:String,
+      value:'',
+    }
   },
 
   /**
@@ -25,6 +41,6 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    
   }
 })

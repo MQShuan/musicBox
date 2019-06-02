@@ -1,0 +1,31 @@
+/* pages/main-index/main-index.wxss */
+.header-tabbar{
+  display: flex;
+  flex-wrap: nowrap;
+  height: 50px;
+  background-color:  rgb(198, 47, 47);
+}
+.select-tabbar-button{
+  flex:1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(198, 47, 47);
+  color: rgb(237,239,241);
+  font-size: 15px;
+}
+.selected-tabbar-button{
+  flex:1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(198, 47, 47);
+  color: #fff;
+  font-size: 15px;
+}
+.selected-tabbar-button text{
+   border-bottom: 2px solid #fff;
+   padding-bottom: 0;
+}

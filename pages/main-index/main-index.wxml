@@ -1,0 +1,24 @@
+<!--pages/main-index/main-index.wxml-->
+<view>
+  <view class='header-tabbar'>
+    <button class="{{selectTab===0?'selected-tabbar-button':'select-tabbar-button'}}" bindtap='selectRecommend'>
+      <text>推荐</text>
+    </button>
+    <button class="{{selectTab===1?'selected-tabbar-button':'select-tabbar-button'}}" bindtap='selectFriend'>
+      <text>朋友</text>
+    </button>
+    <button class="{{selectTab===2?'selected-tabbar-button':'select-tabbar-button'}}" bindtap='selectFm'>
+      <text>电台</text>
+    </button>
+  </view>
+  <view class='rc-container' wx:if="{{selectTab===0}}">
+    <swiper></swiper>
+    <text>推荐页面</text>
+  </view>
+  <view class='friend-container' wx:if="{{selectTab===1}}">
+    <text>朋友页面</text>
+  </view>
+  <view class='fm-container' wx:if="{{selectTab===2}}">
+    <text>电台页面</text>
+  </view>
+</view>

@@ -4,9 +4,12 @@
     <view wx:if="{{isSearch}}" class='row-view-block-left-icon'>
       <text>⭐</text>
     </view>
+    <view wx:if="{{leftImage!==''}}">
+      <image class='left-image' src='{{leftImage}}'></image>
+    </view>
     <view class='row-view-block-left-name'>
-      <view class='row-view-block-left-music-name'><text>歌曲名字（翻译）</text></view>
-      <view class='row-view-block-left-author-name'><text>歌手/作者</text></view>
+      <view class='row-view-block-left-music-name'><text>{{name}}</text></view>
+      <view class='row-view-block-left-author-name'><text>{{sub_name}}</text></view>
     </view>
   </button>
   <button wx:if="{{video}}" class='row-view-block-right-button'>⭐</button>

@@ -36,5 +36,20 @@
         </view>
       </button>
     </view>
-
+    <view>
+      <view class='song-list-header'>
+        <button bindtap='showSongList' class='song-list-header-left'>
+          <text>创建的歌单(number)</text>
+        </button>
+        <button  class='song-list-header-right'>
+          设置
+        </button>
+      </view>
+      <view wx:if="{{songList}}">
+        <row-button
+          name="我喜欢的音乐"
+          sub_name="18首，已下载10首"
+        />
+      </view>
+    </view>
 </view>
