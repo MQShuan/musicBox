@@ -1,0 +1,19 @@
+<!--components/customize-audio/customize-audio.wxml-->
+<view>
+  <view>
+    <view class="button-row">
+      <view class="button-block"><button><text>⭐</text></button></view>
+      <view class="button-block"><button><text>⭐</text></button></view>
+      <view class="button-block"><button><text>⭐</text></button></view>
+      <view class="button-block"><button><text>⭐</text></button></view>
+      <view class="button-block"><button><text>⭐</text></button></view>
+    </view>
+  </view>
+  <view class="button-row">
+      <view class="button-block"><button><text>⭐</text></button></view>
+      <view class="button-block"><button><text>⭐</text></button></view>
+      <view class="button-block"><button bindtap='audioState'><text>播放</text></button></view>
+      <view class="button-block"><button><text>⭐</text></button></view>
+      <view class="button-block"><button><text>⭐</text></button></view>
+    </view>
+</view>

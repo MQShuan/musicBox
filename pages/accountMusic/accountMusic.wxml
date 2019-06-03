@@ -16,21 +16,21 @@
   <view>
       <button class='row-button'>
         <view class='row-button-view'>
-          <text>⭐</text>
+          <text class="iconfont icon-diantaizhibo"></text>
           <text class='row-button-view-title'>我的电台</text>
           <text class='row-button-view-number'>(数量)</text>  
         </view>
       </button>
       <button class='row-button'>
         <view class='row-button-view'>
-          <text>⭐</text>
+          <text class='iconfont icon-iconset0481'></text>
           <text class='row-button-view-title'>我的收藏</text>
           <text class='row-button-view-number'>(数量)</text>  
         </view>
       </button>
       <button class='row-button'>
         <view class='row-button-view'>
-          <text>⭐</text>
+          <text class="iconfont icon-chazhao"></text>
           <text class='row-button-view-title'>最近播放</text>
           <text class='row-button-view-number'>(数量)</text>  
         </view>
@@ -42,7 +42,7 @@
           <text>创建的歌单(number)</text>
         </button>
         <button  class='song-list-header-right'>
-          设置
+          <text class="iconfont icon-shezhi"></text>
         </button>
       </view>
       <view wx:if="{{songList}}">

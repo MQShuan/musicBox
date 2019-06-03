@@ -1,0 +1,16 @@
+/* components/customize-audio/customize-audio.wxss */
+
+.button-row{
+  display:flex;
+  flex-wrap: nowrap;
+  height: 60rpx;
+  width: 100%;
+  align-items: center;
+}
+.button-block{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+}

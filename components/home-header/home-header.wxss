@@ -1,5 +1,5 @@
 /* components/home-header/home-header.wxss */
-
+@import"../../styles/iconfont.wxss"
 .container{
   height: 60px;
   display: flex;
@@ -34,4 +34,8 @@
 }
 .container-button-right{
   justify-content: flex-end;
+}
+.icon{
+  color:#fff;
+  font-size:40rpx;
 }

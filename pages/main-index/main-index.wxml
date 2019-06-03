@@ -13,7 +13,10 @@
   </view>
   <view class='rc-container' wx:if="{{selectTab===0}}">
     <swiper></swiper>
-    <text>推荐页面</text>
+    <customize-audio
+      name="test"
+      musicSrc="http://music.163.com/song/media/outer/url?id=476592630.mp3"
+    />
   </view>
   <view class='friend-container' wx:if="{{selectTab===1}}">
     <text>朋友页面</text>

@@ -1,4 +1,4 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {"customize-audio":"../../components/customize-audio/customize-audio"}
 }
