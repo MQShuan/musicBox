@@ -39,17 +39,19 @@
     <view>
       <view class='song-list-header'>
         <button bindtap='showSongList' class='song-list-header-left'>
-          <text>创建的歌单(number)</text>
+          <text>创建的歌单({{playList.length}})</text>
         </button>
         <button  class='song-list-header-right'>
           <text class="iconfont icon-shezhi"></text>
         </button>
       </view>
-      <view wx:if="{{songList}}">
-        <row-button
-          name="我喜欢的音乐"
-          sub_name="18首，已下载10首"
-        />
+      <view wx:if="{{songList}}" wx:for="{{playList}}" wx:key="key">
+          <row-button
+            name="{{item.name}}"
+            subName="{{item.trackCount}}"
+            dataId="{{item.id}}"
+            leftImage="{{item.coverImgUrl}}"
+          />
       </view>
     </view>
 </view>

@@ -1,5 +1,23 @@
 <!--index.wxml-->
 <view class="container">
-<home-header></home-header>
-<main-index/>
+<view class='header-container'>
+  <view class='container-button'>
+      <button>
+        <text class="iconfont icon-caidan icon"></text>
+      </button>
+    </view>
+    <view class='center-container'>
+      <button class='center-container-button' bindtap='toAccountMusic'><text class="iconfont icon-yinle icon"></text></button>
+      <button class='center-container-button' bindtap='toIndexPage'><text class="iconfont icon-bofang icon"></text></button>
+      <button class='center-container-button'><text class="iconfont icon-shipin icon"></text></button>
+    </view>
+    <view class='container-button container-button-right'>
+      <button>
+        <text class="iconfont icon-chazhao icon"></text>
+      </button>
+    </view>
+</view>
+<accountMusic wx:if="{{selectPage===0}}"/>
+<main-index wx:if="{{selectPage===1}}"/>
+<button bindtap='loginPage'>登陆</button>
 </view>

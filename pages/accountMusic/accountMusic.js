@@ -1,70 +1,29 @@
-// pages/accountMusic/accountMusic.js
-Page({
-
-  /**
-   * 页面的初始数据
-   */
+Component({
+  properties:{},
   data: {
     songList:true,
+    playList:'',
   },
-  showSongList(event){
-    this.setData({
-      songList:!this.data.songList,
-    })
+  
+  lifetimes:{
+    attached:function(){
+      wx.request({
+        method: "get",
+        url: 'http://localhost:3000/user/playlist' + '?uid=' + Number(wx.getStorageSync('uid')),
+        success:(res)=>{
+          this.setData({
+            playList:res.data.playlist,
+          })
+          console.log(this.data.playList);
+        },
+      })
+    }
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  methods: {
+    showSongList(e) {
+      this.setData({
+        songList: !this.data.songList,
+      })
+    },
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

@@ -1,0 +1,19 @@
+<view>
+  <form bindsubmit="formSubmit" class='login-container'>
+    <view class='login-input-view'>
+      <text>账号:</text>
+      <input name="email" class='login-input'></input>
+    </view>
+    <view class='login-input-view'>
+      <text>密码:</text>
+      <input 
+        name="password"  
+        class='login-input'
+        password="ture">
+      </input>
+    </view>
+    <button form-type='submit'>登陆</button>
+  </form>
+  <button bindtap='logout'>注销</button>
+  <button bindtap='toIndex'>首页</button>
+</view>

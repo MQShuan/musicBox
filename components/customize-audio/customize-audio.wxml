@@ -9,6 +9,11 @@
       <view class="button-block"><button><text>⭐</text></button></view>
     </view>
   </view>
+  <slider 
+    bindchange='changeDuration' 
+    value="{{duration}}"
+    block-size="12"
+    ></slider>
   <view class="button-row">
       <view class="button-block"><button><text>⭐</text></button></view>
       <view class="button-block"><button><text>⭐</text></button></view>

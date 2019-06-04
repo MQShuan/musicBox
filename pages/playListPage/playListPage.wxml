@@ -1,0 +1,10 @@
+<!--pages/playListPage/playListPage.wxml-->
+<text>{{playListId}}</text>
+<view wx:for="{{songList}}">
+  <row-button
+    name="{{item.songName}}"
+    subName="{{item.authorName}}"
+    rowType="{{item.rowType}}"
+    dataId="{{item.id}}"
+  />
+</view>

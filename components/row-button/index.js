@@ -4,9 +4,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    video:{
-      type:Boolean,
-      value:false,
+    mv:{
+      type:Number,
+      value:'',
     },
     isSearch:{
       type:Boolean,
@@ -18,18 +18,28 @@ Component({
     },
     name:{
       type:String,
-      value:"一级名字",
+      value:'',
     },
-    sub_name:{
+    subName:{
       type:String,
-      value:'副标题名字',
+      value:'',
     },
     leftImage:{
       type:String,
       value:'',
+    },
+    dataId:{
+      type:Number,
+      value:'',
+    },
+    rowType:{
+      type:String,
+      value:'',
     }
   },
-
+  lifetimes:{
+    
+  },
   /**
    * 组件的初始数据
    */
@@ -41,6 +51,16 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    
+    detailPage:function(e){
+      if(this.data.rowType==='song'){
+        wx.navigateTo({
+          url: '../../pages/audioPlayer/audioPlayer?id=' + this.data.dataId+'&songName='+this.data.name+'&authorName='+this.data.subName,
+        })
+      }else{
+        wx.navigateTo({
+          url: '../../pages/playListPage/playListPage?id=' + this.data.dataId,
+        })
+      }
+    }
   }
 })

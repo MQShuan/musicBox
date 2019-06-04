@@ -1,6 +1,6 @@
 {
   "usingComponents": {
     "row-button":"../../components/row-button/index",
-    "home-header": "../../components/home-header/home-header",
-    "main-index":"../main-index/main-index"}
+    "main-index":"../main-index/main-index",
+    "accountMusic":"../accountMusic/accountMusic"}
 }

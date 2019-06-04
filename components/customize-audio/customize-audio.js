@@ -12,14 +12,6 @@ Component({
       type:String,
       value:"00:00"
     },
-    musicName:{
-      type:String,
-      value:'',
-    },
-    musicSubName:{
-      type:String,
-      value:'',
-    },
   },
 
   //生命周期
@@ -67,5 +59,8 @@ Component({
         playState:false,
       });
     },
+    changeDuration:function(e){
+      this.audioManage.seek(e.detail.value)
+    }
   }
 })

@@ -1,17 +1,17 @@
 <!--components/row-button/index.wxml-->
 <view class='container'>
-  <button class='row-view-block-left'>
+  <button class='row-view-block-left' bindtap='detailPage'>
     <view wx:if="{{isSearch}}" class='row-view-block-left-icon'>
       <text>⭐</text>
     </view>
-    <view wx:if="{{leftImage!==''}}">
+    <view wx:if="{{leftImage!==''}}" class='left-image-view'>
       <image class='left-image' src='{{leftImage}}'></image>
     </view>
     <view class='row-view-block-left-name'>
       <view class='row-view-block-left-music-name'><text>{{name}}</text></view>
-      <view class='row-view-block-left-author-name'><text>{{sub_name}}</text></view>
+      <view class='row-view-block-left-author-name'><text>{{subName}}</text></view>
     </view>
   </button>
-  <button wx:if="{{video}}" class='row-view-block-right-button'>⭐</button>
+  <button wx:if="{{mv}}" class='row-view-block-right-button'>⭐</button>
   <button class='row-view-block-right-button'>⭐</button>
 </view>

@@ -1,0 +1,7 @@
+<!--pages/audioPlayer/audioPlayer.wxml-->
+<text>{{dataId}}</text>
+<text>{{songName}}</text>
+<text>{{authorName}}</text>
+<customize-audio 
+  musicSrc="{{currentMusicUrl}}"
+/>
