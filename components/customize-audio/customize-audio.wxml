@@ -11,8 +11,9 @@
   </view>
   <slider 
     bindchange='changeDuration' 
-    value="{{duration}}"
+    value="{{sliderDuration}}"
     block-size="12"
+    max="100"
     ></slider>
   <view class="button-row">
       <view class="button-block"><button><text>⭐</text></button></view>
