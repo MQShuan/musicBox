@@ -8,11 +8,6 @@ Component({
       type:String,
       value:'',
     },
-    duration:{
-      type:String,
-      value:"00:00"
-    },
-    
   },
 
   //生命周期
@@ -24,26 +19,44 @@ Component({
       this.audioManage = wx.createInnerAudioContext();//创建audio实例
       this.audioManage.src = this.data.musicSrc;
       this.audioManage.autoplay = true;
-      this.setData({
-        duration:this.audioManage.duration,
+      this.audioManage.onPlay(()=>{
+        setTimeout(() => {//获取歌曲的总时长duration
+          this.audioManage.duration;
+          let durationMin, durationSec;//初始化显示duration
+          durationMin = (this.audioManage.duration / 60 - this.audioManage.duration % 60 / 60).toFixed(0);
+          durationSec = (this.audioManage.duration % 60).toFixed(0);
+          this.setData({
+            duration: durationMin + ':' + durationSec,
+          })
+          this.audioManage.currentTime;
+          console.log(this.audioManage.duration);
+          console.log(this.audioManage.currentTime);
+        }, 100);
       });
-      setTimeout(() => {//获取歌曲的总时长duration
-        this.audioManage.duration;
-        this.audioManage.currentTime;
-        console.log(this.audioManage.duration);
-        console.log(this.audioManage.currentTime);
-      }, 1000);
-      this.audioManage.onPlay(() => {
-        console.log('开始播放')
-      })
-      this.audioManage.onTimeUpdate(() => {
-        let sliderNow = this.audioManage.currentTime / this.audioManage.duration * 100;
-        this.setData({
-          sliderDuration: sliderNow,
-        });
-        console.log(sliderNow);
+      this.audioManage.onTimeUpdate((res) => {//即时播放时间转换为slider进度，转换currentTime为分秒显示
+        let sliderNow = this.audioManage.currentTime / this.audioManage.duration * 200;
+        let min;
+        if(this.audioManage.currentTime>60) {
+          min = (this.audioManage.currentTime / 60 - this.audioManage.currentTime % 60 / 60).toFixed(0) < 10
+            ? '0' + (this.audioManage.currentTime / 60 - this.audioManage.currentTime % 60 / 60).toFixed(0)
+            : (this.audioManage.currentTime / 60 - this.audioManage.currentTime % 60 / 60).toFixed(0);
+        }else{
+          min = '00';
+        }
+        
+        let sec = this.audioManage.currentTime % 60 < 10 
+          ? '0' + (this.audioManage.currentTime % 60).toFixed(0) 
+                  : (this.audioManage.currentTime % 60).toFixed(0); 
+          this.setData({
+            sliderDuration: sliderNow,
+            currentMin:min,
+            currentSec:sec,
+          });
+          console.log(sliderNow);
       });
-
+    },
+    detached: function () {
+      this.audioManage.destroy();
     },
   },
 
@@ -53,6 +66,9 @@ Component({
   data: {
     playState:true,
     sliderDuration:0,
+    currentMin:0,
+    currentSec:0,
+    duration:0,
   },
 
   /**
@@ -76,13 +92,13 @@ Component({
         playState:false,
       });
     },
+  
     changeDuration:function(e){
-      let currentDuartion = e.detail.value/100 * this.audioManage.duration;
+      let currentDuartion = e.detail.value/200 * this.audioManage.duration;
       this.setData({
         sliderDuration: e.detail.value,
       })
       this.audioManage.seek(currentDuartion);
-
     },
   }
 })

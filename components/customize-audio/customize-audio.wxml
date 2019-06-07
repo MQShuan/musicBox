@@ -1,20 +1,23 @@
 <!--components/customize-audio/customize-audio.wxml-->
 <view>
-  <view>
-    <view class="button-row">
-      <view class="button-block"><button><text>⭐</text></button></view>
-      <view class="button-block"><button><text>⭐</text></button></view>
-      <view class="button-block"><button><text>⭐</text></button></view>
-      <view class="button-block"><button><text>⭐</text></button></view>
-      <view class="button-block"><button><text>⭐</text></button></view>
+  <view class='slider-row'>
+    <view  class='slider-text'>
+        <text>{{currentMin}}:{{currentSec}}</text>
     </view>
+    <view class='slider-view'>
+      <slider 
+        bindchange='changeDuration' 
+        value="{{sliderDuration}}"
+        block-size="12"
+        max="200"
+
+        ></slider>
+    </view>
+    <view class='slider-text'>
+      <text>{{duration}}</text>
+    </view>
+    
   </view>
-  <slider 
-    bindchange='changeDuration' 
-    value="{{sliderDuration}}"
-    block-size="12"
-    max="100"
-    ></slider>
   <view class="button-row">
       <view class="button-block"><button><text>⭐</text></button></view>
       <view class="button-block"><button><text>⭐</text></button></view>
