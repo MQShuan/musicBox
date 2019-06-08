@@ -9,15 +9,17 @@ Page({
         password: e.detail.value.password,
       },
       success(res){
+        console.log(res.data);
         let userId = res.data.account.id.toString();
         wx.setStorage({
           key: 'uid',
           data: userId,
         });
+        let userData = JSON.stringify(res.data);
+        wx.setStorageSync('userData', userData);
         wx.navigateTo({
           url: '../index/index',
         });
-        console.log(wx.getStorageSync('uid'));
       }
     })
   },

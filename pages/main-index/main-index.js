@@ -1,23 +1,33 @@
 // pages/main-index/main-index.js
 Component({
-  /**
-   * 组件的属性列表
-   */
+  lifetimes:{
+    ready:function(){
+      wx.request({
+        url: 'http://localhost:3000/banner?type=1',
+        success:(res)=>{
+          this.setData({
+            bannerData:res.data.banners,
+          })
+          console.log(this.data.bannerData)
+        }
+      })
+    }
+  },
   properties: {
 
   },
 
-  /**
-   * 组件的初始数据
-   */
+  
   data: {
     selectTab:0,
+    bannerData:'',
   },
 
-  /**
-   * 组件的方法列表
-   */
+ 
   methods: {
+    bannerTap:function(e){
+      console.log(e.target.dataset.url);
+    },
     selectRecommend:function(event){
       this.setData({
         selectTab:0,

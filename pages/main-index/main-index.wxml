@@ -12,11 +12,25 @@
     </button>
   </view>
   <view class='rc-container' wx:if="{{selectTab===0}}">
-    <swiper></swiper>
-    <customize-audio
-      name="test"
-      musicSrc="http://music.163.com/song/media/outer/url?id=476592630.mp3"
-    />
+    <swiper
+      autoplay="true"
+      interval="3000"
+      indicator-dots="true"
+      indicator-color="rgb(237,239,241)"
+      indicator-active-color="rgb(198, 47, 47)"
+    >
+      <block wx:for="{{bannerData}}">
+        <swiper-item>
+          <button data-url="{{item.url}}" bindtap='bannerTap'>
+            <image src='{{item.pic}}' mode="widthFix" class="banner-image">
+            </image>
+            <view class="{{item.titleColor==='blue' ? 'bg-blue banner-image-tag' : 'bg-red banner-image-tag '}}">
+                <text>{{item.typeTitle}}</text>
+            </view>
+          </button>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
   <view class='friend-container' wx:if="{{selectTab===1}}">
     <text>朋友页面</text>

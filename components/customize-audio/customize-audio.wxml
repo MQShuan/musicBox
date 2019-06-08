@@ -10,7 +10,8 @@
         value="{{sliderDuration}}"
         block-size="12"
         max="200"
-
+        activeColor="rgb(198, 47, 47)"
+        backgroundColor="rgb(237,239,241)"
         ></slider>
     </view>
     <view class='slider-text'>

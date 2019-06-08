@@ -1,7 +1,19 @@
 <!--pages/audioPlayer/audioPlayer.wxml-->
-<text>{{dataId}}</text>
-<text>{{songName}}</text>
-<text>{{authorName}}</text>
-<customize-audio 
-  musicSrc="{{currentMusicUrl}}"
-/>
+<view class='container'>
+  <view class='header-container'>
+    <button class='header-button'>
+      <text>返回</text>
+    </button>
+    <button class='header-center'>
+      <text class='header-center-name'>{{songName}}</text>
+      <text class='header-center-subname'>{{authorName}}</text>
+    </button>
+    <button class='header-button'>
+      <text>分享</text>
+    </button>
+  </view>
+  <customize-audio 
+    musicSrc="{{currentMusicUrl}}"
+  />
+</view>
+

@@ -29,3 +29,21 @@
    border-bottom: 2px solid #fff;
    padding-bottom: 0;
 }
+.banner-image{
+  
+}
+.banner-image-tag{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.bg-blue{
+  background-color:aqua;
+}
+.bg-red{
+  background-color: rgb(198, 47, 47);
+}
+.banner-image-tag text{
+  font-size: 10px;
+  color: #fff;
+}

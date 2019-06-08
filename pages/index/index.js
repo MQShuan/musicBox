@@ -5,7 +5,9 @@ const app = getApp()
 Page({
   data: {
     selectPage:0,
+
   },
+
   loginPage:function(){
     wx.navigateTo({
       url: '../login/login',

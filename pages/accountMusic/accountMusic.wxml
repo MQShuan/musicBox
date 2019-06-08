@@ -3,12 +3,12 @@
   <home-header/>
   <view class='user-info-row' >
     <view class='user-info-block'>
-      <button class='avater'>
-        <image></image>
+      <button class='user-button'>
+        <image class='avater' src="{{avatarUrl}}"></image>
+        <text class='user-button-name'>{{userName}}</text>
       </button>
-      <text>用户名字</text>
       <button class='vip'>
-        <image></image>
+        <image ></image>
       </button>
     </view>
     <button class='become-vip'>开通会员</button>
