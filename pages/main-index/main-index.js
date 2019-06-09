@@ -8,9 +8,21 @@ Component({
           this.setData({
             bannerData:res.data.banners,
           })
-          console.log(this.data.bannerData)
         }
-      })
+      });
+      wx.request({
+        url: 'http://localhost:3000/personalized',
+        success:(res)=>{
+          console.log(res.data.result);
+          let songListPart = [];
+          for(let i=0;i<6;i++){
+            songListPart[i] = res.data.result[i];
+          }
+          this.setData({
+            rcSongList:songListPart,
+          })
+        }
+      });
     }
   },
   properties: {
@@ -21,6 +33,7 @@ Component({
   data: {
     selectTab:0,
     bannerData:'',
+    rcSongList:'',
   },
 
  
@@ -41,6 +54,12 @@ Component({
     selectFm: function (event) {
       this.setData({
         selectTab: 2,
+      })
+    },
+    songListDetail:function(e){
+      console.log(e.currentTarget);
+      wx.navigateTo({
+        url: '../playListPage/playListPage?id=' + e.currentTarget.dataset.songlistid,
       })
     }
   }

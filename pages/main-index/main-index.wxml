@@ -31,6 +31,18 @@
         </swiper-item>
       </block>
     </swiper>
+    <view>
+      <button class='gird-title'>
+        <text style="font-weight:900;color:rgb(8,15,23);">推荐歌单</text>
+        <text style="color:gray">></text>
+      </button>
+      <view class='gird-container'>
+        <button class='gird-col' wx:for="{{rcSongList}}" bindtap='songListDetail' data-songlistid="{{item.id}}">
+          <image src='{{item.picUrl}}' mode='widthFix'></image>
+          <text>{{item.name}}</text>
+        </button>
+      </view>
+    </view>
   </view>
   <view class='friend-container' wx:if="{{selectTab===1}}">
     <text>朋友页面</text>

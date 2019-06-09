@@ -47,3 +47,35 @@
   font-size: 10px;
   color: #fff;
 }
+.gird-title{
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  height: 30px;
+  font-size: 14px;
+  margin-left: 1%;
+}
+.gird-container{
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.gird-col{
+  flex: 0 0 auto;
+  width: 31.33333333%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.gird-col text{
+  font-size: 12px;
+}
+.gird-col image{
+  border-radius: 3%;
+}
