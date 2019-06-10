@@ -1,0 +1,72 @@
+<view class='container'>
+  <view class='current-top'>
+    <image src='{{currentImageUrl}}'></image>
+    <text>{{currentName}}</text>
+  </view>
+  <view class='comment-container'>
+    <view class='comment-top'>
+      <text>精彩评论</text>
+    </view>
+    <view class='comment-content-container' wx:for="{{commentData.hotComments}}">
+      <view class='comment-rowbutton-conatiner'>
+        <button>
+          <view>
+            <view class='comment-userinfo-row'>
+              <view class='comment-userinfo-row-left'>
+                <image src='{{item.user.avatarUrl}}'></image>
+                <view class='comment-userinfo-row-text'>
+                  <text style="font-size:22rpx;">{{item.user.nickname}}</text>
+                  <text style="font-size:18rpx;color:gray;">>{{item.time}}</text>
+                </view>
+              </view>
+              <view>
+                <text style="font-size:22rpx;color:gray;">{{item.likedCount}}⭐</text>
+              </view>
+            </view>
+            <view class='comment-content'>
+              <text>{{item.content}}</text>
+            </view>
+          </view>
+        </button>
+        <view class='comment-replied'  wx:if="{{item.beReplied.length>0}}">
+          <button>
+            <text>{{item.beReplied.length}}条回复></text>
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='comment-container'>
+    <view class='comment-top'>
+      <text>最新评论</text>
+    </view>
+    <view class='comment-content-container' wx:for="{{commentData.comments}}">
+      <view class='comment-rowbutton-conatiner'>
+        <button>
+          <view>
+            <view class='comment-userinfo-row'>
+              <view class='comment-userinfo-row-left'>
+                <image src='{{item.user.avatarUrl}}'></image>
+                <view class='comment-userinfo-row-text'>
+                  <text style="font-size:22rpx;">{{item.user.nickname}}</text>
+                  <text style="font-size:18rpx;color:gray;">>{{item.time}}</text>
+                </view>
+              </view>
+              <view>
+                <text style="font-size:22rpx;color:gray;">{{item.likedCount}}⭐</text>
+              </view>
+            </view>
+            <view class='comment-content'>
+              <text>{{item.content}}</text>
+            </view>
+          </view>
+        </button>
+        <view class='comment-replied'  wx:if="{{item.beReplied.length>0}}">
+          <button>
+            <text>{{item.beReplied.length}}条回复></text>
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

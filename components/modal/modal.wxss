@@ -1,0 +1,30 @@
+.container{
+  height: 100%;
+  width: 100%;
+  z-index: 9999;
+  opacity:0.5;
+  background-color: gray;
+  display: flex;
+  align-items: center;
+}
+.container-bottom{
+  justify-content: flex-end;
+}
+.container-center{
+  justify-content: center;
+}
+.modal-content{
+  width: 90%;
+}
+.footer{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: 80rpx;
+}
+.footer button{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,88 @@
+/* pages/commment/comment.wxss */
+.container{
+
+}
+.current-top{
+  display: flex;
+  width: 98%;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: 200rpx;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+.current-top image{
+  height: 160rpx;
+  width: 160rpx;
+  border-radius: 3%;
+}
+.current-top text{
+  font-size: 32rpx;
+  word-break:break-all;
+  padding-left: 2%;
+}
+.comment-rowbutton-conatiner{
+  border-bottom: 1px solid rgb(237,239,241);
+  margin-top: 3%;
+  padding-bottom: 3%;
+}
+.comment-top{
+  width: 100%;
+  background-color: rgb(237,239,241);
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  padding-left: 2%;
+}
+.comment-top text{
+  font-size: 26rpx;
+}
+.comment-userinfo-row{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  height: 100rpx;
+}
+.comment-userinfo-row image{
+  height: 100rpx;
+  width: 100rpx;
+  margin-right: 2%;
+  margin-left: 2%;
+  border-radius: 50%;
+}
+.comment-userinfo-row-text{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+.comment-userinfo-row-text text{
+  white-space:nowrap;
+}
+.comment-userinfo-row-left{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.comment-content{
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 4%;
+  margin-top: 3%;
+}
+.comment-content text{
+  font-size: 26rpx;
+  text-align: left;
+  line-height: 30rpx;
+}
+.comment-replied{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 4%;
+}
+.comment-replied text{
+  color:rgb(90,126,167);
+  font-size: 22rpx;
+}

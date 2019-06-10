@@ -1,0 +1,9 @@
+<view class="{{modalType === 'bottom'?'container container-bottom':'container container-center'}}">
+  <view class='modal-content'>
+    
+  </view>
+  <view class='footer' wx:if="{{footer}}">
+    <button>确定</button>
+    <button>取消</button>
+  </view>
+</view>

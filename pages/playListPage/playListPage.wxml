@@ -1,10 +1,38 @@
 <!--pages/playListPage/playListPage.wxml-->
-<text>{{playListId}}</text>
-<view wx:for="{{songList}}">
-  <row-button
-    name="{{item.songName}}"
-    subName="{{item.authorName}}"
-    rowType="{{item.rowType}}"
-    dataId="{{item.id}}"
-  />
+<view>
+  <view class='songlist-top'>
+    <view class='songlist-top-container'>
+      <image src='{{songListDetail.coverImgUrl}}' class='songlist-top-img'></image>
+      <view class='songlist-top-info-container'>
+        <text style='color:#fff;font-size:30rpx;'>{{songListDetail.name}}</text>
+        <view class='songlist-top-creator-container'>
+          <image src='{{songListDetail.creator.avatarUrl}}'></image>
+          <text>{{songListDetail.creator.nickname}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='songlist-button-row'>
+      <view class='songlist-button-block'>
+        <button class='songlist-button' bindtap='songListComment'><image></image><text>评论</text></button>
+      </view>
+      <view class='songlist-button-block'>
+        <button class='songlist-button'><image></image><text>分享</text></button>
+      </view>
+      <view class='songlist-button-block'>
+        <button class='songlist-button'><image></image><text>下载</text></button>
+      </view>
+      <view class='songlist-button-block'>
+        <button class='songlist-button'><image></image><text>多选</text></button>
+      </view>
+    </view>
+  </view>
+  <view wx:for="{{songList}}">
+    <row-button
+      name="{{item.songName}}"
+      subName="{{item.authorName}}"
+      rowType="{{item.rowType}}"
+      dataId="{{item.id}}"
+    />
+  </view>
 </view>
+

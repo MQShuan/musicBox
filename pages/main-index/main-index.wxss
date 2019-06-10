@@ -30,12 +30,22 @@
    padding-bottom: 0;
 }
 .banner-image{
-  
+    width: 100%;
+}
+.banner-button{
+  height: 100%;
 }
 .banner-image-tag{
   position: absolute;
-  right: 0;
-  bottom: 0;
+  right: 0rpx;
+  bottom: 0rpx;
+  border-radius: 10%;
+  height: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  width: 116rpx;
 }
 .bg-blue{
   background-color:aqua;
@@ -44,7 +54,7 @@
   background-color: rgb(198, 47, 47);
 }
 .banner-image-tag text{
-  font-size: 10px;
+  font-size: 12px;
   color: #fff;
 }
 .gird-title{
@@ -71,11 +81,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: center;
+  margin-bottom: auto;
 }
 .gird-col text{
-  font-size: 12px;
+  font-size: 11.5px;
+  text-align:left;
+  line-height: 15px;
 }
 .gird-col image{
   border-radius: 3%;
+
 }

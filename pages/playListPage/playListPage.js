@@ -7,8 +7,17 @@ Page({
   data: {
     playListId:'',
     songList:'',
+    songListDetail:'',
   },
 
+  songListComment:function(e){
+    let type = 'playlist';
+    let imageUrl = encodeURIComponent(this.data.songListDetail.coverImgUrl)
+    wx.navigateTo({
+      url: '../comment/comment?id=' + this.data.playListId + '&type=' + type + '&name=' + this.data.songListDetail.name 
+                                    + '&imageUrl=' + imageUrl,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -34,8 +43,8 @@ Page({
         })
         this.setData({
           songList:res.data.playlist.tracks,
+          songListDetail:res.data.playlist,
         })
-        console.log(res.data);
       }
     })
   },

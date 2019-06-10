@@ -4,7 +4,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/playListPage/playListPage",
-    "pages/audioPlayer/audioPlayer"
+    "pages/audioPlayer/audioPlayer",
+    "pages/comment/comment"
   ],
   "window": {
     "backgroundTextStyle": "light",

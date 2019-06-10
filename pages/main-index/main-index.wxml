@@ -18,10 +18,11 @@
       indicator-dots="true"
       indicator-color="rgb(237,239,241)"
       indicator-active-color="rgb(198, 47, 47)"
+      style="height:147px;"
     >
       <block wx:for="{{bannerData}}">
         <swiper-item>
-          <button data-url="{{item.url}}" bindtap='bannerTap'>
+          <button data-url="{{item.url}}" bindtap='bannerTap' class='banner-button'>
             <image src='{{item.pic}}' mode="widthFix" class="banner-image">
             </image>
             <view class="{{item.titleColor==='blue' ? 'bg-blue banner-image-tag' : 'bg-red banner-image-tag '}}">
