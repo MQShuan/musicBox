@@ -1,5 +1,5 @@
 /* components/customize-audio/customize-audio.wxss */
-
+@import"../../styles/iconfont.wxss";
 .button-row{
   display:flex;
   flex-wrap: nowrap;
@@ -13,6 +13,11 @@
   align-items: center;
   flex: 1;
   height: 60px;
+  
+}
+.button-block button{
+  background-color: rgb(100, 100,100);
+  height: 100%;
 }
 .slider-row{
   display: flex;
@@ -36,4 +41,8 @@
   flex: 1;
   height: 100%;
 
+}
+.play-icon{
+  color: #fff;
+  font-size: 24px;
 }

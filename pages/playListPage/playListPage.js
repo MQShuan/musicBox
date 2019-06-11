@@ -8,8 +8,14 @@ Page({
     playListId:'',
     songList:'',
     songListDetail:'',
+    visible:false,
   },
-
+  showModalEvent: function (e) {
+    this.setData({
+      visible: e.detail.modalvisible,
+    })
+    console.log(this.data.visible)
+  },
   songListComment:function(e){
     let type = 'playlist';
     let imageUrl = encodeURIComponent(this.data.songListDetail.coverImgUrl)
@@ -41,6 +47,7 @@ Page({
           i.authorName = arName + '-' + i.al.name;
           i.rowType = 'song';
         })
+        console.log(res.data.playlist);
         this.setData({
           songList:res.data.playlist.tracks,
           songListDetail:res.data.playlist,

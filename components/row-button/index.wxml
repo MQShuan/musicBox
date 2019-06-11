@@ -12,6 +12,7 @@
       <view class='row-view-block-left-author-name'><text>{{subName}}</text></view>
     </view>
   </button>
-  <button wx:if="{{mv}}" class='row-view-block-right-button'>⭐</button>
-  <button class='row-view-block-right-button'>⭐</button>
+  <button wx:if="{{mv}}" class='row-view-block-right-button'><text class='iconfont icon icon-shipinbofangyingpian'></text></button>
+  <button class='row-view-block-right-button' bindtap='moreTap'><text class='iconfont icon-morevert icon'></text></button>
+  
 </view>

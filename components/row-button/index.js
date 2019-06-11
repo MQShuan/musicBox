@@ -35,6 +35,10 @@ Component({
     rowType:{
       type:String,
       value:'',
+    },
+    moreTap:{
+      type:Function,
+      value:null,
     }
   },
   lifetimes:{
@@ -44,7 +48,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    
+
   },
 
   /**
@@ -61,6 +65,9 @@ Component({
           url: '../../pages/playListPage/playListPage?id=' + this.data.dataId,
         })
       }
+    },
+    moreTap:function(){
+      this.triggerEvent('modalevent', { modalvisible: true });
     }
   }
 })

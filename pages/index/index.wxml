@@ -8,7 +8,7 @@
     </view>
     <view class='center-container'>
       <button class='center-container-button' bindtap='toAccountMusic'><text class="iconfont icon-yinle icon"></text></button>
-      <button class='center-container-button' bindtap='toIndexPage'><text class="iconfont icon-bofang icon"></text></button>
+      <button class='center-container-button' bindtap='toIndexPage'><text class="iconfont icon-zhuanjiguangpan icon"></text></button>
       <button class='center-container-button'><text class="iconfont icon-shipin icon"></text></button>
     </view>
     <view class='container-button container-button-right'>

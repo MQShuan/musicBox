@@ -39,5 +39,5 @@
 }
 .icon{
   color:#fff;
-  font-size:40rpx;
+  font-size:44rpx;
 }

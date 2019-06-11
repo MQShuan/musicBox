@@ -51,7 +51,15 @@
             subName="{{item.trackCount}}"
             dataId="{{item.id}}"
             leftImage="{{item.coverImgUrl}}"
+            bind:modalevent="showModalEvent"
           />
       </view>
     </view>
+    <modal showModal="{{visible}}">
+      <view slot="modalContent">
+        <text>
+          hhhhhhhhh
+        </text>
+      </view>
+  </modal>
 </view>

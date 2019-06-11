@@ -1,4 +1,4 @@
 {
   "component": true,
-  "usingComponents": {"row-button":"../../components/row-button/index"}
+  "usingComponents": {"row-button":"../../components/row-button/index","modal": "../../components/modal/modal"}
 }

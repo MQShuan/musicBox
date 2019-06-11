@@ -99,6 +99,12 @@ Component({
         sliderDuration: e.detail.value,
       })
       this.audioManage.seek(currentDuartion);
+      if(!this.data.playState){
+        this.audioManage.play();
+        this.setData({
+          playState:true,
+        })
+      }
     },
   }
 })

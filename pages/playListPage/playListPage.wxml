@@ -32,7 +32,21 @@
       subName="{{item.authorName}}"
       rowType="{{item.rowType}}"
       dataId="{{item.id}}"
+      bind:modalevent="showModalEvent"
+      mv="{{item.mv}}"
     />
   </view>
+  <modal showModal="{{visible}}">
+      <view slot="modalContent">
+        <view>
+          <text>
+          hhhhhhhhh
+        </text>
+        <button>
+          <text>⭐</text>
+        </button>
+        </view>
+      </view>
+  </modal>
 </view>
 

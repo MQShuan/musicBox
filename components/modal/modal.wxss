@@ -1,20 +1,33 @@
 .container{
+  display: flex;
+}
+.mask{
+  position: fixed;
+  left: 0;
+  top: 0;
   height: 100%;
   width: 100%;
   z-index: 9999;
   opacity:0.5;
-  background-color: gray;
-  display: flex;
-  align-items: center;
+  background-color: rgba(0,0,0,0.4);
+  overflow: hidden;
 }
 .container-bottom{
-  justify-content: flex-end;
+  align-items: flex-end;
 }
 .container-center{
-  justify-content: center;
+  align-items: center;
 }
 .modal-content{
-  width: 90%;
+  width: 100%;
+  background-color: #fff;
+  height: 50%;
+  display: flex;
+  position: fixed;
+  top:50%;
+  left: 0%;
+  flex-direction: column;
+  z-index: 10000;
 }
 .footer{
   display: flex;

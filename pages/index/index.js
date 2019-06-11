@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    selectPage:0,
+    selectPage:1,
 
   },
 

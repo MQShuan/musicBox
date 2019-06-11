@@ -5,6 +5,7 @@ Component({
     playList:'',
     userName:'',
     avatarUrl:'',
+    visible:false,
   },
   
   lifetimes:{
@@ -33,5 +34,11 @@ Component({
         songList: !this.data.songList,
       })
     },
+  },
+  showModalEvent: function (e) {
+    this.setData({
+      visible: e.detail.modalvisible,
+    })
+    console.log(this.data.visible)
   },
 })

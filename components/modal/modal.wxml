@@ -1,6 +1,10 @@
-<view class="{{modalType === 'bottom'?'container container-bottom':'container container-center'}}">
+<view 
+  wx:if="{{showModal}}" 
+  class="{{modalType === 'bottom'?'container container-bottom':'container container-center'}}" 
+  >
+  <view class='mask' bindtap='tapMask'></view>
   <view class='modal-content'>
-    
+    <slot name="modalContent"></slot>
   </view>
   <view class='footer' wx:if="{{footer}}">
     <button>确定</button>

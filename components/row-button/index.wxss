@@ -1,5 +1,5 @@
 /* components/row-button/index.wxss */
-
+@import"../../styles/iconfont.wxss";
 .container{
   display: flex;
   flex-wrap: nowrap;
@@ -55,4 +55,8 @@
 .left-image{
   width: 60px;
   height: 60px;
+}
+.icon{
+  color:gray;
+  font-size: 20px;
 }

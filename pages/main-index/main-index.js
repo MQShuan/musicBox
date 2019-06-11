@@ -61,6 +61,6 @@ Component({
       wx.navigateTo({
         url: '../playListPage/playListPage?id=' + e.currentTarget.dataset.songlistid,
       })
-    }
+    },
   }
 })
