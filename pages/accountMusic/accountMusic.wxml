@@ -42,7 +42,7 @@
           <text>创建的歌单({{playList.length}})</text>
         </button>
         <button  class='song-list-header-right'>
-          <text class="iconfont icon-shezhi"></text>
+          <text class="iconfont icon-shezhi icon-set"></text>
         </button>
       </view>
       <view wx:if="{{songList}}" wx:for="{{playList}}" wx:key="key">
@@ -57,9 +57,10 @@
     </view>
     <modal showModal="{{visible}}">
       <view slot="modalContent">
-        <text>
-          hhhhhhhhh
-        </text>
+        <button class='modal-button'>
+          <text>⭐</text>
+          <text></text>
+        </button>
       </view>
   </modal>
 </view>

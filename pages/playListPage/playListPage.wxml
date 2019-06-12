@@ -38,14 +38,25 @@
   </view>
   <modal showModal="{{visible}}">
       <view slot="modalContent">
-        <view>
-          <text>
-          hhhhhhhhh
-        </text>
-        <button>
-          <text>⭐</text>
+        <button class='modal-button'>
+          <text class='modal-button-icon iconfont icon-unie601'></text>
+          <text class='modal-button-title'>评论</text>
         </button>
-        </view>
+        <button class='modal-button'>
+          <text class='modal-button-icon iconfont icon-unie601'></text>
+          <text class='modal-button-title'>收藏到歌单</text>
+        </button>
+        <button class='modal-button'>
+          <text class='modal-button-icon iconfont icon-shipinbofangyingpian'></text>
+          <text class='modal-button-title'>查看视频</text>
+        </button>
+        <button 
+          class='modal-button' 
+          wx:if="{{songListDetail.creator.userId===songListDetail.userId}}"
+          bindtap='delSong'>
+          <text class='modal-button-icon iconfont icon-unie601'></text>
+          <text class='modal-button-title'>删除</text>
+        </button>
       </view>
   </modal>
 </view>

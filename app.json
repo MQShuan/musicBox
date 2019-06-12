@@ -1,12 +1,26 @@
 {
   "pages": [
-    "pages/login/login",
     "pages/index/index",
+    "pages/accountMusic/accountMusic",
+    "pages/login/login",
     "pages/logs/logs",
     "pages/playListPage/playListPage",
     "pages/audioPlayer/audioPlayer",
     "pages/comment/comment"
   ],
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/accountMusic/accountMusic",
+        "text": "用户歌单"
+      }
+    ]
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

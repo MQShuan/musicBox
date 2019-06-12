@@ -67,7 +67,10 @@ Component({
       }
     },
     moreTap:function(){
-      this.triggerEvent('modalevent', { modalvisible: true });
+      let rowState = {}
+      rowState.id = this.data.dataId;
+      rowState.modalvisible = true;
+      this.triggerEvent('modalevent', {rowState});
     }
   }
 })

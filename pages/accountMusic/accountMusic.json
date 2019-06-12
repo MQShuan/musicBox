@@ -1,4 +1,5 @@
 {
-  "component": true,
-  "usingComponents": {"row-button":"../../components/row-button/index","modal": "../../components/modal/modal"}
+  "usingComponents": {"row-button":"../../components/row-button/index",
+                      "modal": "../../components/modal/modal",
+                      "custom-tab-bar":"../../custom-tab-bar/index"}
 }

@@ -1,6 +1,5 @@
 {
   "usingComponents": {
     "row-button":"../../components/row-button/index",
-    "main-index":"../main-index/main-index",
-    "accountMusic":"../accountMusic/accountMusic"}
+    "custom-tab-bar": "../../custom-tab-bar/index"}
 }

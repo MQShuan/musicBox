@@ -1,6 +1,8 @@
 /* pages/accountMusic/accountMusic.wxss */
-.cintainer{
+@import'../../styles/iconfont';
+.container{
   width: 100%;
+  margin-top:48px;
 }
 .user-info-row{
   display: flex;
@@ -90,4 +92,15 @@
   background-color: rgb(237,239,241);
   font-size: 15px;
   height: 100%;
+}
+.modal-button{
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  border-bottom: 1px solid rgb(237,239,241);
+  height: 80rpx;
+}
+.icon-set{
+  font-size: 15px;
+  color: gray;
 }

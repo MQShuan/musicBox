@@ -12,9 +12,10 @@ Page({
   },
   showModalEvent: function (e) {
     this.setData({
-      visible: e.detail.modalvisible,
+      visible: e.detail.rowState.modalvisible,
+      currentSelectSongId:e.detail.rowState.id,
     })
-    console.log(this.data.visible)
+    console.log(e.detail)
   },
   songListComment:function(e){
     let type = 'playlist';
@@ -22,6 +23,22 @@ Page({
     wx.navigateTo({
       url: '../comment/comment?id=' + this.data.playListId + '&type=' + type + '&name=' + this.data.songListDetail.name 
                                     + '&imageUrl=' + imageUrl,
+    })
+  },
+  delSong(){
+    wx.request({
+      method:'post',
+      url: 'http://localhost:3000/playlist/tracks?op=del&pid=' + this.data.songListDetail.id + '&tracks=' + this.data.currentSelectSongId +'&timestamp=1560308702',
+      success:(res)=>{
+        console.log(res.data);
+        if(res.code===200){
+          wx.showToast({
+            title: '网易云音乐小程序：删除成功',
+            icon: 'success',
+            duration: 2000
+          })
+        }
+      }
     })
   },
   /**

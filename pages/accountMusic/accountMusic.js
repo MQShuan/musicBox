@@ -1,4 +1,4 @@
-Component({
+Page({
   properties:{},
   data: {
     songList:true,
@@ -7,37 +7,39 @@ Component({
     avatarUrl:'',
     visible:false,
   },
-  
-  lifetimes:{
-    attached:function(){
-      wx.request({
-        method: "get",
-        url: 'http://localhost:3000/user/playlist?uid=' + Number(wx.getStorageSync('uid')),
-        success:(res)=>{
-          this.setData({
-            playList:res.data.playlist,
-          })
-          console.log(this.data.playList);
-        },
-      });
-      let userData = JSON.parse(wx.getStorageSync('userData'));
-      console.log(userData);
-      this.setData({
-        userName:userData.profile.nickname,
-        avatarUrl:userData.profile.avatarUrl,
+  onShow:function(){
+    if(typeof this.getTabbar === 'function'&& this.getTabbar()){
+      this.getTabbar().setData({
+        selected:1,
       })
     }
   },
-  methods: {
-    showSongList(e) {
-      this.setData({
-        songList: !this.data.songList,
-      })
-    },
+  onReady:function(){
+    wx.request({
+      method: "get",
+      url: 'http://localhost:3000/user/playlist?uid=' + Number(wx.getStorageSync('uid')),
+      success: (res) => {
+        this.setData({
+          playList: res.data.playlist,
+        })
+        console.log(this.data.playList);
+      },
+    });
+    let userData = JSON.parse(wx.getStorageSync('userData'));
+    console.log(userData);
+    this.setData({
+      userName: userData.profile.nickname,
+      avatarUrl: userData.profile.avatarUrl,
+    })
+  },
+  showSongList:function(e) {
+    this.setData({
+      songList: !this.data.songList,
+    })
   },
   showModalEvent: function (e) {
     this.setData({
-      visible: e.detail.modalvisible,
+      visible: e.detail.rowState.modalvisible,
     })
     console.log(this.data.visible)
   },

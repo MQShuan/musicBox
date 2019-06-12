@@ -46,3 +46,25 @@
   color: #fff;
   font-size: 24px;
 }
+.music-container{
+  
+  align-items: center;
+  justify-content: center;
+}
+.music-container-sv{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.music-lyric-row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.music-lyric-select{
+  color: rgb(237,239,241);
+}
+.music-lyric-selected{
+  color: #fff;
+}

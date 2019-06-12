@@ -1,5 +1,15 @@
 <!--components/customize-audio/customize-audio.wxml-->
 <view>
+    <scroll-view 
+    style="height:{{scrollHeight}}px"
+    class='music-container-sv'
+    scroll-y='true'
+    scroll-top="19"
+    >
+      <view wx:for="{{musiclyric}}" class='music-lyric-row'>
+        <text class="{{}}">{{item[1]}}</text>
+      </view>
+  </scroll-view>
   <view class='slider-row'>
     <view  class='slider-text'>
         <text>{{currentMin}}:{{currentSec}}</text>
@@ -17,7 +27,6 @@
     <view class='slider-text'>
       <text>{{duration}}</text>
     </view>
-    
   </view>
   <view class="button-row">
       <view class="button-block"><button><text>⭐</text></button></view>

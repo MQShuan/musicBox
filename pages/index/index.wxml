@@ -17,7 +17,5 @@
       </button>
     </view>
 </view>
-<accountMusic wx:if="{{selectPage===0}}"/>
-<main-index wx:if="{{selectPage===1}}"/>
 <button bindtap='loginPage'>登陆</button>
 </view>

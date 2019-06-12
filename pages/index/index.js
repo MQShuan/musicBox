@@ -7,7 +7,13 @@ Page({
     selectPage:1,
 
   },
-
+  onShow: function () {
+    if (typeof this.getTabbar === 'function' && this.getTabbar()) {
+      this.getTabbar().setData({
+        selected: 0,
+      })
+    }
+  },
   loginPage:function(){
     wx.navigateTo({
       url: '../login/login',
