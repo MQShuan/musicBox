@@ -4,10 +4,17 @@
     style="height:{{scrollHeight}}px"
     class='music-container-sv'
     scroll-y='true'
-    scroll-top="19"
+    scroll-into-view="{{currentLyric}}"
     >
-      <view wx:for="{{musiclyric}}" class='music-lyric-row'>
-        <text class="{{}}">{{item[1]}}</text>
+      <view 
+        wx:for="{{musiclyric}}"  
+        wx:for-index="index" 
+        class="music-lyric-row"  
+        id="item{{index}}" >
+        <text  
+          class="{{currentLyricIndex == index?'music-lyric-selected':'music-lyric-select'}}">
+          {{item[1]}}
+        </text>
       </view>
   </scroll-view>
   <view class='slider-row'>

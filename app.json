@@ -1,18 +1,20 @@
 {
   "pages": [
+    "pages/main-index/main-index",
     "pages/index/index",
     "pages/accountMusic/accountMusic",
     "pages/login/login",
     "pages/logs/logs",
     "pages/playListPage/playListPage",
     "pages/audioPlayer/audioPlayer",
-    "pages/comment/comment"
+    "pages/comment/comment",
+    "pages/vedioPlayer/vedioPlayer"
   ],
   "tabBar": {
     "custom": true,
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/main-index/main-index",
         "text": "首页"
       },
       {

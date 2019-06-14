@@ -4,7 +4,7 @@ Component({
     color: "gray",
     selectedColor: "#fff",
     list: [{
-      pagePath: "/pages/index/index",
+      pagePath: "/pages/main-index/main-index",
       text: "iconfont icon-shipin icon"
     }, {
         pagePath: "/pages/accountMusic/accountMusic",

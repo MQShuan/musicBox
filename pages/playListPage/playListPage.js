@@ -9,6 +9,7 @@ Page({
     songList:'',
     songListDetail:'',
     visible:false,
+    userId:'',
   },
   showModalEvent: function (e) {
     this.setData({
@@ -28,7 +29,7 @@ Page({
   delSong(){
     wx.request({
       method:'post',
-      url: 'http://localhost:3000/playlist/tracks?op=del&pid=' + this.data.songListDetail.id + '&tracks=' + this.data.currentSelectSongId +'&timestamp=1560308702',
+      url: 'http://localhost:3000/playlist/tracks?op=del&pid=' + this.data.songListDetail.id + '&tracks=' + this.data.currentSelectSongId,    
       success:(res)=>{
         console.log(res.data);
         if(res.code===200){
@@ -39,6 +40,11 @@ Page({
           })
         }
       }
+    })
+  },
+  songComment:function(){
+    wx.navigateTo({
+      url: '../comment/comment?type=music&id=' + this.data.currentSelectSongId,
     })
   },
   /**
@@ -68,6 +74,7 @@ Page({
         this.setData({
           songList:res.data.playlist.tracks,
           songListDetail:res.data.playlist,
+          userId:wx.getStorageSync('uid'),
         })
       }
     })

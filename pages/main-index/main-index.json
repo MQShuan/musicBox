@@ -1,5 +1,4 @@
 {
-  "component": true,
   "usingComponents": {"customize-audio":"../../components/customize-audio/customize-audio",
                       "custom-tab-bar": "../../custom-tab-bar/index"}
 }

@@ -1,0 +1,37 @@
+<view>
+  <video 
+    src='{{mvUrl}}' 
+    class='vedio'
+    object-fit='fill'></video>
+  <view class='mv-info-container'>
+    <view>
+      <text class='name'>{{mvInfo.name}}</text>
+    </view>
+    <view class='mv-info-subname-container'>
+      <text>发布:{{mvInfo.publishTime}}</text>
+      <text>|</text>
+      <text>播放:{{mvInfo.playCount}}</text>
+    </view>
+    <view class='mv-info-button-row'>
+      <button class='mv-info-button'>
+        <text>点赞</text>
+        <text>{{mvInfo.likeCount}}</text>
+      </button>
+      <button class='mv-info-button'>
+        <text>收藏</text>
+        <text>{{mvInfo.subCount}}</text>
+      </button>
+      <button class='mv-info-button' bindtap='mvComment'>
+        <text>评论</text>
+        <text>{{mvInfo.commentCount}}</text>
+      </button>
+      <button class='mv-info-button'>
+        <text>icon</text>
+        <text>{{mvInfo.shareCount}}</text>
+      </button>
+    </view>
+  </view>
+  <view>
+  
+  </view>
+</view>

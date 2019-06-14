@@ -1,5 +1,5 @@
 <view class='container'>
-  <view class='current-top'>
+  <view class='current-top' wx:if="{{currentImageUrl && currentName}}">
     <image src='{{currentImageUrl}}'></image>
     <text>{{currentName}}</text>
   </view>

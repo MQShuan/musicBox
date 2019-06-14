@@ -11,7 +11,7 @@
 .row-view-block-right-button{
   justify-content: center;
   align-items: center;
-  flex: 1;
+  width: 10%;
   display: flex;
   height: 100%;
 }

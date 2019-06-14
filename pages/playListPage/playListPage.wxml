@@ -38,7 +38,7 @@
   </view>
   <modal showModal="{{visible}}">
       <view slot="modalContent">
-        <button class='modal-button'>
+        <button class='modal-button' bindtap='songComment'>
           <text class='modal-button-icon iconfont icon-unie601'></text>
           <text class='modal-button-title'>评论</text>
         </button>
@@ -52,7 +52,7 @@
         </button>
         <button 
           class='modal-button' 
-          wx:if="{{songListDetail.creator.userId===songListDetail.userId}}"
+          wx:if="{{songListDetail.creator.userId===userId}}"
           bindtap='delSong'>
           <text class='modal-button-icon iconfont icon-unie601'></text>
           <text class='modal-button-title'>删除</text>

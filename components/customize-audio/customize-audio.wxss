@@ -63,7 +63,7 @@
   align-items: center;
 }
 .music-lyric-select{
-  color: rgb(237,239,241);
+  color: gray;
 }
 .music-lyric-selected{
   color: #fff;

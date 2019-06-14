@@ -4,6 +4,7 @@
   flex-wrap: nowrap;
   height: 50px;
   background-color:  rgb(198, 47, 47);
+  margin-top: 48px;
 }
 .select-tabbar-button{
   flex:1;

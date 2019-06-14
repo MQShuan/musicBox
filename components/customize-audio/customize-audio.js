@@ -21,6 +21,8 @@ Component({
     duration: 0,
     musiclyric:'',
     scrollHeight:'',
+    currentLyric:0,
+    currentLyricIndex:0,
   },
   //生命周期
   lifetimes:{
@@ -53,26 +55,10 @@ Component({
         }, 100);
       });
       this.getLyric();
-      this.audioManage.onTimeUpdate((res) => {//即时播放时间转换为slider进度，转换currentTime为分秒显示
-        let sliderNow = this.audioManage.currentTime / this.audioManage.duration * 200;
-        let min;
-        if(this.audioManage.currentTime>60) {
-          min = (this.audioManage.currentTime / 60 - this.audioManage.currentTime % 60 / 60).toFixed(0) < 10
-            ? '0' + (this.audioManage.currentTime / 60 - this.audioManage.currentTime % 60 / 60).toFixed(0)
-            : (this.audioManage.currentTime / 60 - this.audioManage.currentTime % 60 / 60).toFixed(0);
-        }else{
-          min = '00';
-        }
-        
-        let sec = this.audioManage.currentTime % 60 < 10 
-          ? '0' + (this.audioManage.currentTime % 60).toFixed(0) 
-                  : (this.audioManage.currentTime % 60).toFixed(0); 
-          this.setData({
-            sliderDuration: sliderNow,
-            currentMin:min,
-            currentSec:sec,
-          });
-          console.log(sliderNow);
+      this.audioManage.onTimeUpdate((res) => {//音乐播放进度改变时绑定的事件
+        this.getCurrentDuration();
+        this.getSliderNow();
+        this.lyricScroll();
       });
     },
     detached: function () {
@@ -98,6 +84,31 @@ Component({
         playState:false,
       });
     },
+    getSliderNow: function () {//即时播放时间转换为slider进度
+        let sliderNow = this.audioManage.currentTime / this.audioManage.duration * 200;
+        this.setData({
+          sliderDuration: sliderNow,
+        });
+        console.log(sliderNow);
+      
+    },
+    getCurrentDuration: function () {//转换currentTime为分秒显示
+      let min;
+      if (this.audioManage.currentTime > 60) {
+        min = (this.audioManage.currentTime / 60 - this.audioManage.currentTime % 60 / 60).toFixed(0) < 10
+          ? '0' + (this.audioManage.currentTime / 60 - this.audioManage.currentTime % 60 / 60).toFixed(0)
+          : (this.audioManage.currentTime / 60 - this.audioManage.currentTime % 60 / 60).toFixed(0);
+      } else {
+        min = '00';
+      }
+      let sec = this.audioManage.currentTime % 60 < 10
+        ? '0' + (this.audioManage.currentTime % 60).toFixed(0)
+        : (this.audioManage.currentTime % 60).toFixed(0); 
+      this.setData({
+        currentMin: min,
+        currentSec: sec,
+      })
+    },
     getLyric:function(){//获取歌词对歌词进行正则处理
       let musiclyric = '';
       wx.request({
@@ -107,7 +118,9 @@ Component({
           for(let i = 0;i<musiclyric.length;i++){
             musiclyric[i] = musiclyric[i].split(']');
             if (musiclyric[i].length>1){
+              musiclyric[i][0] = musiclyric[i][0].substring(0,5);
               musiclyric[i][1] = musiclyric[i][1].replace("↵","");
+              musiclyric[i][2] = 'item'+ i;
             }
           }
           this.setData({
@@ -116,6 +129,18 @@ Component({
           console.log(musiclyric);
         }
       })
+    },
+    lyricScroll:function(){
+      let currentTime = this.data.currentMin + ':' + this.data.currentSec;
+      for(let i = 0;i<this.data.musiclyric.length;i++){
+        if (this.data.musiclyric[i][0] === currentTime){
+          let index = this.data.musiclyric[i][2].substring(4);
+          this.setData({
+            currentLyric: this.data.musiclyric[i][2],
+            currentLyricIndex:index,
+          })
+        }
+      }
     },
     changeDuration:function(e){
       let currentDuartion = e.detail.value/200 * this.audioManage.duration;
@@ -130,5 +155,8 @@ Component({
         })
       }
     },
+    test:function(e){
+      console.log(e);
+    }
   }
 })

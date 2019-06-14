@@ -71,6 +71,11 @@ Component({
       rowState.id = this.data.dataId;
       rowState.modalvisible = true;
       this.triggerEvent('modalevent', {rowState});
+    },
+    mvPage:function(){
+      wx.navigateTo({
+        url: '../../pages/vedioPlayer/vedioPlayer?mv=' + this.data.mv,
+      })
     }
   }
 })
