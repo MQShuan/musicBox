@@ -1,20 +1,21 @@
 <!--pages/audioPlayer/audioPlayer.wxml-->
 <view class='container'>
   <view class='header-container'>
-    <button class='header-button'>
-      <text>返回</text>
+    <button class='header-button' bindtap='back'>
+      <text class='iconfont icon-cc-arrow-left header-center-name'></text>
     </button>
     <button class='header-center'>
       <text class='header-center-name'>{{songName}}</text>
       <text class='header-center-subname'>{{authorName}}</text>
     </button>
     <button class='header-button'>
-      <text>分享</text>
+      <text class='iconfont icon-share header-center-name'></text>
     </button>
   </view>
   <customize-audio 
     musicSrc="{{currentMusicUrl}}"
     musicId="{{dataId}}"
+    coverImageUrl="{{coverImageUrl}}"
   />
 </view>
 

@@ -39,6 +39,10 @@ Component({
     moreTap:{
       type:Function,
       value:null,
+    },
+    coverImageUrl:{
+      type:String,
+      value:'',
     }
   },
   lifetimes:{
@@ -58,7 +62,8 @@ Component({
     detailPage:function(e){
       if(this.data.rowType==='song'){
         wx.navigateTo({
-          url: '../../pages/audioPlayer/audioPlayer?id=' + this.data.dataId+'&songName='+this.data.name+'&authorName='+this.data.subName,
+          url: '../../pages/audioPlayer/audioPlayer?id=' + this.data.dataId+'&songName='+this.data.name+'&authorName='+this.data.subName
+            + '&coverImageUrl=' + encodeURIComponent(this.data.coverImageUrl),
         })
       }else{
         wx.navigateTo({

@@ -1,10 +1,22 @@
 <!--components/customize-audio/customize-audio.wxml-->
 <view>
-    <scroll-view 
+  <view 
+    wx:if="{{!showLyric}}" 
+    class='disk-container' 
+    style="height:{{scrollHeight}}px" 
+    bindtap='changeShowLyric'>
+    <image 
+      class="{{playState?'disk scroll-disk-music-on':'disk'}}"
+      style="height:{{windowWidth}}px;width:{{windowWidth}}px"
+      src="{{coverImageUrl}}"></image>
+  </view>
+  <scroll-view 
     style="height:{{scrollHeight}}px"
     class='music-container-sv'
     scroll-y='true'
-    scroll-into-view="{{currentLyric}}"
+    scroll-into-view="item{{currentLyricScrollToRow}}"
+    wx:if="{{showLyric}}"
+    bindtap='changeShowLyric'
     >
       <view 
         wx:for="{{musiclyric}}"  
@@ -12,7 +24,7 @@
         class="music-lyric-row"  
         id="item{{index}}" >
         <text  
-          class="{{currentLyricIndex == index?'music-lyric-selected':'music-lyric-select'}}">
+          class="{{currentLyric == index?'music-lyric-selected':'music-lyric-select'}}">
           {{item[1]}}
         </text>
       </view>

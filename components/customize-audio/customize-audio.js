@@ -11,10 +11,15 @@ Component({
     musicId:{
       type:Number,
       value:'',
+    },
+    coverImageUrl:{
+      type:String,
+      value:'',
     }
   },
   data: {
     playState: true,
+    showLyric:false,
     sliderDuration: 0,
     currentMin: 0,
     currentSec: 0,
@@ -22,7 +27,9 @@ Component({
     musiclyric:'',
     scrollHeight:'',
     currentLyric:0,
-    currentLyricIndex:0,
+    currentLyricScrollToRow:-1,
+    coverImageUrl:'',
+    widowWidth:'',
   },
   //生命周期
   lifetimes:{
@@ -34,9 +41,11 @@ Component({
         success:(res)=>{
           this.setData({
             scrollHeight: res.windowHeight-150,
+            windowWidth: res.windowWidth-100,
           })
         },
       })
+      console.log(this.data.coverImageUrl);
       this.audioManage = wx.createInnerAudioContext();//创建audio实例
       this.audioManage.src = this.data.musicSrc;
       this.audioManage.autoplay = true;
@@ -120,7 +129,7 @@ Component({
             if (musiclyric[i].length>1){
               musiclyric[i][0] = musiclyric[i][0].substring(0,5);
               musiclyric[i][1] = musiclyric[i][1].replace("↵","");
-              musiclyric[i][2] = 'item'+ i;
+              musiclyric[i][2] = i;
             }
           }
           this.setData({
@@ -130,14 +139,18 @@ Component({
         }
       })
     },
-    lyricScroll:function(){
+    lyricScroll:function(){//歌词滚动
       let currentTime = this.data.currentMin + ':' + this.data.currentSec;
       for(let i = 0;i<this.data.musiclyric.length;i++){
         if (this.data.musiclyric[i][0] === currentTime){
-          let index = this.data.musiclyric[i][2].substring(4);
           this.setData({
             currentLyric: this.data.musiclyric[i][2],
-            currentLyricIndex:index,
+          })
+        }
+        let currentLyricScrollRow = this.data.currentLyric-4; 
+        if (this.data.currentLyric > 4 && currentLyricScrollRow !== this.data.currentLyricScrollToRow){
+          this.setData({
+            currentLyricScrollToRow:currentLyricScrollRow
           })
         }
       }
@@ -155,8 +168,10 @@ Component({
         })
       }
     },
-    test:function(e){
-      console.log(e);
+    changeShowLyric:function(e){
+      this.setData({
+        showLyric:!this.data.showLyric,
+      })
     }
   }
 })

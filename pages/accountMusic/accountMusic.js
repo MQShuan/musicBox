@@ -1,5 +1,4 @@
 Page({
-  properties:{},
   data: {
     songList:true,
     playList:'',
@@ -43,4 +42,9 @@ Page({
     })
     console.log(this.data.visible)
   },
+  playRecordPage:function(){
+    wx.navigateTo({
+      url: '../playRecord/playRecord',
+    })
+  }
 })

@@ -8,7 +8,8 @@
     "pages/playListPage/playListPage",
     "pages/audioPlayer/audioPlayer",
     "pages/comment/comment",
-    "pages/vedioPlayer/vedioPlayer"
+    "pages/vedioPlayer/vedioPlayer",
+    "pages/playRecord/playRecord"
   ],
   "tabBar": {
     "custom": true,

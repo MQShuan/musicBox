@@ -1,0 +1,13 @@
+<!--pages/playRecord/playRecord.wxml-->
+<view>
+  <view wx:for="{{songList}}">
+    <row-button
+      name="{{item.songName}}"
+      subName="{{item.authorName}}"
+      rowType="{{item.rowType}}"
+      dataId="{{item.song.id}}"
+      bind:modalevent="showModalEvent"
+      mv="{{item.song.mv}}"
+    />
+  </view>
+</view>

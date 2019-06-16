@@ -16,21 +16,14 @@
   <view>
       <button class='row-button'>
         <view class='row-button-view'>
-          <text class="iconfont icon-diantaizhibo"></text>
-          <text class='row-button-view-title'>我的电台</text>
-          <text class='row-button-view-number'>(数量)</text>  
-        </view>
-      </button>
-      <button class='row-button'>
-        <view class='row-button-view'>
           <text class='iconfont icon-iconset0481'></text>
           <text class='row-button-view-title'>我的收藏</text>
           <text class='row-button-view-number'>(数量)</text>  
         </view>
       </button>
-      <button class='row-button'>
+      <button class='row-button' bindtap='playRecordPage'>
         <view class='row-button-view'>
-          <text class="iconfont icon-chazhao"></text>
+          <text class="iconfont icon-iconset0481"></text>
           <text class='row-button-view-title'>最近播放</text>
           <text class='row-button-view-number'>(数量)</text>  
         </view>

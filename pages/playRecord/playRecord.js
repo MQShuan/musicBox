@@ -1,51 +1,40 @@
-// pages/audioPlayer/audioPlayer.js
+// pages/playRecord/playRecord.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    dataId:'',
-    songName:'',
-    authorName:'',
-    currentMusicUrl:'',
-    coverImageUrl:'',
+    songList:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      dataId:options.id,
-      songName:options.songName,
-      authorName:options.authorName,
-      coverImageUrl: decodeURIComponent(options.coverImageUrl),
-    })
     wx.request({
-      url: 'http://localhost:3000/song/url?id=' + options.id,
+      url: 'http://localhost:3000/user/record/?uid='+ wx.getStorageSync('uid') + '&type=0',
       success:(res)=>{
-        console.log(res.data);
-        this.setData({
-          currentMusicUrl:res.data.data[0].url,
+        res.data.allData.map(i => {
+          let arName = '';
+          i.songName = i.song.tns ? i.song.name + '(' + i.song.tns + ')' : i.song.name;
+          for (let j = 0; j < i.song.ar.length; j++) {//对ar数组处理，提取其中的ar.name
+            arName = arName + i.song.ar[j].name;
+            if (j + 1 < i.song.ar.length) {
+              arName = arName + '/'
+            }
+          }
+          i.authorName = arName + '-' + i.song.al.name;
+          i.rowType = 'song';
         })
+        this.setData({
+          songList:res.data.allData,
+        })
+        console.log(res.data);
       }
     })
-    /* wx.request({
-      url: 'http://localhost:3000/song/detail?ids=' + options.id,
-      success: (res) => {
-        console.log(res.data);
-        this.setData({
-          currentMusicUrl: res.data.data[0].url,
-        })
-      }
-    }) */
   },
-  back:function(e){
-    wx.navigateBack({
-      
-    })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
