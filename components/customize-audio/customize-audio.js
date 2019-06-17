@@ -37,7 +37,7 @@ Component({
       
     },
     ready:function(){
-      wx.getSystemInfo({
+      wx.getSystemInfo({//获取屏幕宽高动态设置歌词滚动框高度以及播放转盘宽高
         success:(res)=>{
           this.setData({
             scrollHeight: res.windowHeight-150,
@@ -45,24 +45,7 @@ Component({
           })
         },
       })
-      console.log(this.data.coverImageUrl);
-      this.audioManage = wx.createInnerAudioContext();//创建audio实例
-      this.audioManage.src = this.data.musicSrc;
-      this.audioManage.autoplay = true;
-      this.audioManage.onPlay(()=>{
-        setTimeout(() => {//获取歌曲的总时长duration
-          this.audioManage.duration;
-          let durationMin, durationSec;//初始化显示duration
-          durationMin = (this.audioManage.duration / 60 - this.audioManage.duration % 60 / 60).toFixed(0);
-          durationSec = (this.audioManage.duration % 60).toFixed(0);
-          this.setData({
-            duration: durationMin + ':' + durationSec,
-          })
-          this.audioManage.currentTime;
-          console.log(this.audioManage.duration);
-          console.log(this.audioManage.currentTime);
-        }, 100);
-      });
+      this.createAudio();
       this.getLyric();
       this.audioManage.onTimeUpdate((res) => {//音乐播放进度改变时绑定的事件
         this.getCurrentDuration();
@@ -76,6 +59,25 @@ Component({
   },
 
   methods: {
+    createAudio:function(){
+      this.audioManage = wx.createInnerAudioContext();//创建audio实例
+      this.audioManage.src = this.data.musicSrc;
+      this.audioManage.autoplay = true;
+      this.audioManage.onPlay(() => {
+        setTimeout(() => {//获取歌曲的总时长duration
+          this.audioManage.duration;
+          let durationMin, durationSec;//初始化显示duration
+          durationMin = (this.audioManage.duration / 60 - this.audioManage.duration % 60 / 60).toFixed(0);
+          durationSec = (this.audioManage.duration % 60).toFixed(0);
+          this.setData({
+            duration: durationMin + ':' + durationSec,
+          })
+          this.audioManage.currentTime;
+          console.log(this.audioManage.duration);
+          console.log(this.audioManage.currentTime);
+        }, 100);
+      });
+    },
     audioState:function(){
       if(this.data.playState){
         this.audioManage.pause();

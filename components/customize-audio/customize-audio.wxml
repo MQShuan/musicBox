@@ -51,7 +51,7 @@
       <view class="button-block"><button><text>⭐</text></button></view>
       <view class="button-block"><button><text class='iconfont icon-md-skip-backward play-icon'></text></button></view>
       <view class="button-block"><button bindtap='audioState'>
-        <text class="{{playState?'iconfont icon-play-circle play-icon':'iconfont icon-timeout play-icon'}}"></text></button></view>
+        <text class="{{playState?'iconfont icon-timeout play-icon':'iconfont icon-play-circle play-icon'}}"></text></button></view>
       <view class="button-block"><button><text class='iconfont icon-md-skip-forward play-icon'></text></button></view>
       <view class="button-block"><button><text>⭐</text></button></view>
     </view>

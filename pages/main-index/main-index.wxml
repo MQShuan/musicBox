@@ -41,6 +41,7 @@
         <button class='gird-col' wx:for="{{rcSongList}}" bindtap='songListDetail' data-songlistid="{{item.id}}">
           <image src='{{item.picUrl}}' mode='widthFix'></image>
           <text>{{item.name}}</text>
+          <text class='iconfont icon-erji gird-tag'>{{item.playCount}}</text>
         </button>
       </view>
     </view>

@@ -9,18 +9,23 @@
     "pages/audioPlayer/audioPlayer",
     "pages/comment/comment",
     "pages/vedioPlayer/vedioPlayer",
-    "pages/playRecord/playRecord"
+    "pages/playRecord/playRecord",
+    "pages/search/search"
   ],
   "tabBar": {
     "custom": true,
     "list": [
       {
         "pagePath": "pages/main-index/main-index",
-        "text": "首页"
+        "text": "iconfont icon-shipin icon"
       },
       {
         "pagePath": "pages/accountMusic/accountMusic",
-        "text": "用户歌单"
+        "text": "iconfont icon-yinle icon"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "iconfont icon-icon-chazhao icon"
       }
     ]
   },

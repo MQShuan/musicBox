@@ -7,8 +7,11 @@ Component({
       pagePath: "/pages/main-index/main-index",
       text: "iconfont icon-shipin icon"
     }, {
-        pagePath: "/pages/accountMusic/accountMusic",
-        text: "iconfont icon-yinle icon"
+      pagePath: "/pages/accountMusic/accountMusic",
+      text: "iconfont icon-yinle icon"
+    },{
+      pagePath: "/pages/search/search",
+      text: "iconfont icon-chazhao icon"
     }]
   },
   

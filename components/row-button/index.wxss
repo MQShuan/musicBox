@@ -30,6 +30,10 @@
   flex-direction: column;
   margin-left: 3%;
 }
+.row-view-block-left-name text{
+  overflow: hidden;
+  white-space:nowrap;
+}
 .row-view-block-left-music-name{
   font-size: 26rpx;
 

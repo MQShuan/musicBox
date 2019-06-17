@@ -13,16 +13,23 @@
     </view>
     <view class='songlist-button-row'>
       <view class='songlist-button-block'>
-        <button class='songlist-button' bindtap='songListComment'><image></image><text>评论</text></button>
+        <button class='songlist-button' bindtap='songListComment'>
+        <text class='iconfont icon-weibiaoti- songlist-button-icon'></text>
+        <text class='songlist-button-text'>评论</text></button>
       </view>
       <view class='songlist-button-block'>
-        <button class='songlist-button'><image></image><text>分享</text></button>
+        <button class='songlist-button'>
+          <text class='iconfont icon-share songlist-button-icon'></text>
+          <text class='songlist-button-text'>分享</text></button>
       </view>
       <view class='songlist-button-block'>
-        <button class='songlist-button'><image></image><text>下载</text></button>
+        <button class='songlist-button'>
+        <text class='icon-xiazai iconfont songlist-button-icon'></text>
+        <text class="songlist-button-text">下载</text></button>
       </view>
       <view class='songlist-button-block'>
-        <button class='songlist-button'><image></image><text>多选</text></button>
+        <button class='songlist-button'><text class='iconfont icon-caidan11 songlist-button-icon'></text>
+        <text class='songlist-button-text'>多选</text></button>
       </view>
     </view>
   </view>

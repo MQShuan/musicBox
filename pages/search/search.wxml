@@ -1,0 +1,37 @@
+<view class='container'>
+    <view class='search-header'>
+        <input
+          confirm-type="search"
+          class='search-header-input'
+          name="keywords"
+          value="{{inputValue}}"
+          bindinput="inputKeywords"
+        >
+        </input>
+        <button class='search-header-right-button' bindtap='search'>
+          <text>i</text>
+        </button>
+    </view>
+  <view wx:if="{{!showSearchResult}}" style="margin-top:108px;">
+    <view class='hot-search-button-header'>热门搜索</view>
+    <view class='hot-search-button-container'>
+      <button 
+        class='hot-search-button' 
+        wx:for="{{hotSearch}}"
+        bindtap='inputHotSearch' data-value="{{item.first}}">{{item.first}}</button>
+    </view>
+  </view>
+  <view wx:if="{{showSearchResult}}" style="margin-top:108px;">
+    <view wx:for="{{resultList}}">
+      <row-button
+        name="{{item.songName}}"
+        subName="{{item.authorName}}"
+        rowType="{{item.rowType}}"
+        dataId="{{item.id}}"
+        bind:modalevent="showModalEvent"
+        mv="{{item.mvid}}"
+        coverImageUrl="{{item.album.artist.img1v1Url}}"
+      />
+    </view>
+  </view>
+</view>

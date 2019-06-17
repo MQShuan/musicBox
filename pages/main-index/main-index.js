@@ -16,6 +16,11 @@ Page({
           let songListPart = [];
           for (let i = 0; i < 6; i++) {
             songListPart[i] = res.data.result[i];
+            if(songListPart[i].playCount>100000){
+              songListPart[i].playCount = (songListPart[i].playCount/10000).toFixed(0) + '万';
+            }else{
+              songListPart[i].playCount = songListPart[i].playCount.toFixed(0);
+            }
           }
           this.setData({
             rcSongList: songListPart,

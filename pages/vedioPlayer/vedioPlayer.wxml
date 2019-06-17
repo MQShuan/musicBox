@@ -18,15 +18,15 @@
         <text>{{mvInfo.likeCount}}</text>
       </button>
       <button class='mv-info-button'>
-        <text>收藏</text>
+        <text class='iconfont icon-md-star-outline'></text>
         <text>{{mvInfo.subCount}}</text>
       </button>
       <button class='mv-info-button' bindtap='mvComment'>
-        <text>评论</text>
+        <text class='iconfont icon-weibiaoti-'></text>
         <text>{{mvInfo.commentCount}}</text>
       </button>
       <button class='mv-info-button'>
-        <text>icon</text>
+        <text class='iconfont icon-share'></text>
         <text>{{mvInfo.shareCount}}</text>
       </button>
     </view>

@@ -1,7 +1,6 @@
 // pages/login/login.js
 Page({
   formSubmit: function (e){
-    console.log(e.detail.value);
     wx.request({
       url:'http://localhost:3000/login',
       data:{

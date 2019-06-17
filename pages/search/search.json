@@ -1,0 +1,4 @@
+{
+  "usingComponents": {"row-button": "../../components/row-button/index",
+                      "modal": "../../components/modal/modal"}
+}
