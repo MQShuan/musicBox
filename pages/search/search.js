@@ -9,6 +9,7 @@ Page({
     hotSearch:'',
     showSearchResult:false,
     resultList:'',
+    searchSuggestKeyword:'',
   },
 
   /**
@@ -106,10 +107,17 @@ Page({
       wx.request({
         url: 'http://localhost:3000/search/suggest?keywords=' + this.data.inputValue + '&type=mobile',
         success: (res) => {
-          console.log(res.data);
-          this.setData({
-            showSuggest:true,
-          })
+          console.log(res.data.result);
+          if (res.data.result.allMatch){
+            this.setData({
+              searchSuggestKeyword: res.data.result.allMatch,
+              showSuggest: true,
+            })
+          }else{
+            this.setData({
+              showSuggest: false,
+            })
+          }
         }
       })
     }else{
@@ -118,10 +126,17 @@ Page({
       })
     }
   },
-  inputHotSearch:function(e){
+  inputButtonSearch:function(e){
     this.setData({
       inputValue:e.target.dataset.value,
+      showSuggest:false,
     })
     this.search();
+  },
+  clear:function(){
+    this.setData({
+      inputValue:'',
+      showSuggest:false,
+    })
   }
 })

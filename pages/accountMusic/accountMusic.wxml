@@ -39,7 +39,7 @@
       <view wx:if="{{songList}}" wx:for="{{playList}}" wx:key="key">
           <row-button
             name="{{item.name}}"
-            subName="{{item.trackCount}}"
+            subName="{{item.trackCount + '首'}}"
             dataId="{{item.id}}"
             leftImage="{{item.coverImgUrl}}"
             bind:modalevent="showModalEvent"
@@ -48,7 +48,7 @@
     </view>
     <modal showModal="{{visible}}">
       <view slot="modalContent">
-        <button class='modal-button'>
+        <button class='modal-button' bindtap='newSongList'>
           <text>⭐</text>
           <text></text>
         </button>

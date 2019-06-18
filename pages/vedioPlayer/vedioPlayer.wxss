@@ -4,24 +4,24 @@
   position: fixed;
   top: 0;
 }
-.mv-info-container{
+.vedio-info-container{
   margin-top: 225px;
 }
 .name{
   font-size: 22px;
   font-weight: 600;
 }
-.mv-info-subname-container{
+.vedio-info-subname-container{
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
 }
-.mv-info-subname-container text{
+.vedio-info-subname-container text{
   color:gray;
   font-size: 16px;
 }
-.mv-info-button-row{
+.vedio-info-button-row{
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -29,7 +29,7 @@
   margin-top: 5%;
   height: 40px;
 }
-.mv-info-button{
+.vedio-info-button{
   flex: 1;
   display: flex;
   justify-content: center;
@@ -37,7 +37,33 @@
   flex-direction: column;
   height: 100%;
 }
-.mv-info-button{
+.vedio-info-button{
   font-size: 12px;
   line-height: 14px;
+}
+.related-vedio-button{
+  height: 60px;
+  width: 100%;
+  border-bottom: 1px solid gray;
+  align-items: center;
+  flex-wrap: nowrap;
+  display: flex;
+}
+.related-vedio-button image{
+  flex:2;
+  height: 100%; 
+}
+.related-vedio-button-text-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 3.5;
+} 
+.related-vedio-button-name{
+
+}
+.related-vedio-button-subname{
+  color: gray;
+  font-size: 12px;
+  line-height: 12px;
 }

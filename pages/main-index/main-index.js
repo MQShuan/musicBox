@@ -4,6 +4,7 @@ Page({
       wx.request({
         url: 'http://localhost:3000/banner?type=1',
         success: (res) => {
+          console.log(res.data.banners);
           this.setData({
             bannerData: res.data.banners,
           })
@@ -12,7 +13,6 @@ Page({
       wx.request({
         url: 'http://localhost:3000/personalized',
         success: (res) => {
-          console.log(res.data.result);
           let songListPart = [];
           for (let i = 0; i < 6; i++) {
             songListPart[i] = res.data.result[i];

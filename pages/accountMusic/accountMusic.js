@@ -46,5 +46,5 @@ Page({
     wx.navigateTo({
       url: '../playRecord/playRecord',
     })
-  }
+  },
 })

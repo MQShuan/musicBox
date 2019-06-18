@@ -1,5 +1,17 @@
 <view class='container'>
+    <view wx:if="{{showSuggest}}" class='search-suggest-container'>
+      <view wx:for="{{searchSuggestKeyword}}" sytle="width:100%;">
+        <button 
+          bindtap='inputButtonSearch' 
+          data-value="{{item.keyword}}" 
+          class='search-suggest-button'>
+        <text class='iconfont icon-chazhao search-suggest-text'>{{item.keyword}}</text></button>
+      </view>
+    </view>
     <view class='search-header'>
+        <button class='search-header-right-button' bindtap='search'>
+          <text>搜索</text>
+        </button>
         <input
           confirm-type="search"
           class='search-header-input'
@@ -8,7 +20,10 @@
           bindinput="inputKeywords"
         >
         </input>
-        <button class='search-header-right-button' bindtap='search'>
+        <button 
+          class='search-header-right-button' 
+          bindtap='clear'
+          wx:if="{{inputValue}}">
           <text>i</text>
         </button>
     </view>
@@ -18,7 +33,7 @@
       <button 
         class='hot-search-button' 
         wx:for="{{hotSearch}}"
-        bindtap='inputHotSearch' data-value="{{item.first}}">{{item.first}}</button>
+        bindtap='inputButtonSearch' data-value="{{item.first}}">{{item.first}}</button>
     </view>
   </view>
   <view wx:if="{{showSearchResult}}" style="margin-top:108px;">

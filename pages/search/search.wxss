@@ -1,6 +1,7 @@
 /* pages/search/search.wxss */
 .container{
   margin-top: 48px;
+  position: relative;
 }
 .search-header{
   display: flex;
@@ -49,4 +50,25 @@
 .hot-search-button-header{
   margin-left: 3%;
   font-weight: 700;
+  
+}
+.search-suggest-container{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.search-suggest-button{
+  height: 40px;
+  display: flex;
+  align-items: center;
+  width: 675rpx;
+  border: 1px solid rgb(237,239,241);
+}
+.search-suggest-text{
+  color: gray;
+  font-size: 14px;
 }
