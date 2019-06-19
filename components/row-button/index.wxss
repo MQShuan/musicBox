@@ -35,11 +35,11 @@
   white-space:nowrap;
 }
 .row-view-block-left-music-name{
-  font-size: 26rpx;
+  font-size: 14px;
 
 }
 .row-view-block-left-author-name{
-  font-size: 18rpx;
+  font-size: 10px;
   display: flex;
   color: gray;
 }

@@ -1,11 +1,14 @@
 // pages/login/login.js
 Page({
   formSubmit: function (e){
+    let timestamp = Date.now();
+    console.log(timestamp);
     wx.request({
       url:'http://localhost:3000/login',
       data:{
         email: e.detail.value.email,
         password: e.detail.value.password,
+        timestamp: timestamp,
       },
       success(res){
         console.log(res.data);
@@ -16,8 +19,8 @@ Page({
         });
         let userData = JSON.stringify(res.data);
         wx.setStorageSync('userData', userData);
-        wx.navigateTo({
-          url: '../index/index',
+        wx.switchTab({
+          url: '../main-index/main-index',
         });
       }
     })
@@ -26,27 +29,34 @@ Page({
     wx.request({
       url: 'http://localhost:3000/logout',
       success(res){
+        wx.clearStorage();
         console.log('退出登陆')
       }
     })
   },
   toIndex:function(){
     wx.navigateTo({
-      url: '../index/index',
+      url: '../main-index/main-index',
     });
   },
   /**
    * 页面的初始数据
    */
   data: {
-
+    height:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.getSystemInfo({//获取屏幕宽高
+      success: (res) => {
+        this.setData({
+          height: res.windowHeight,
+        })
+      },
+    })
   },
 
   /**

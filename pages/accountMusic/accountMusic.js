@@ -15,6 +15,12 @@ Page({
   },
   onReady:function(){
     wx.request({
+      url: 'http://localhost:3000/user/subcount',
+      success:(res)=>{
+        console.log(res.data);
+      }
+    })
+    wx.request({
       method: "get",
       url: 'http://localhost:3000/user/playlist?uid=' + Number(wx.getStorageSync('uid')),
       success: (res) => {

@@ -1,0 +1,50 @@
+<view>
+  <video 
+    src='{{videoUrl}}' 
+    class='video'
+    object-fit='fill'></video>
+  <view class='video-info-container'>
+    <view>
+      <text class='name'>{{videoInfo.name}}</text>
+    </view>
+    <view class='video-info-subname-container'>
+      <text>发布:{{videoInfo.publishTime}}</text>
+      <text>|</text>
+      <text>播放:{{videoInfo.playCount}}</text>
+    </view>
+    <view class='video-info-button-row'>
+      <button class='video-info-button'>
+        <text>点赞</text>
+        <text>{{videoInfo.likeCount}}</text>
+      </button>
+      <button class='video-info-button'>
+        <text class='iconfont icon-md-star-outline'></text>
+        <text>{{videoInfo.subCount}}</text>
+      </button>
+      <button class='video-info-button' bindtap='videoComment'>
+        <text class='iconfont icon-weibiaoti-'></text>
+        <text>{{videoInfo.commentCount}}</text>
+      </button>
+      <button class='video-info-button'>
+        <text class='iconfont icon-share'></text>
+        <text>{{videoInfo.shareCount}}</text>
+      </button>
+    </view>
+  </view>
+  <view>
+    <view class='related-vedio-header'>
+      <text>相关推荐</text>
+    </view>
+    <button 
+      wx:for="{{relatedVideo}}" 
+      data-vid="{{item.vid}}"
+      class='related-video-button'
+      bindtap='relatedVideo'>
+      <image src='{{item.coverUrl}}' mode="aspectFit"></image>
+      <view class='related-video-button-text-container'>
+        <text class='related-video-button-name'>{{item.title}}</text>
+        <text class='related-video-button-subname'>{{item.creator[0].userName}}</text>
+      </view>
+    </button>
+  </view>
+</view>

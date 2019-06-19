@@ -1,0 +1,84 @@
+/* pages/videoPlayer/videoPlayer.wxss */
+.video{
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+.video-info-container{
+  margin-top: 225px;
+}
+.name{
+  font-size: 22px;
+  font-weight: 600;
+}
+.video-info-subname-container{
+  display: flex;
+  flex-wrap: nowrap;
+  
+  align-items: center;
+}
+.video-info-subname-container text{
+  color:gray;
+  font-size: 16px;
+}
+.video-info-button-row{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+  height: 40px;
+}
+.video-info-button{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+.video-info-button{
+  font-size: 12px;
+  line-height: 14px;
+}
+.related-video-button{
+  height: 70px;
+  width: 100%;
+  border-bottom: 1px solid rgb(237,239,241);
+  align-items: center;
+  flex-wrap: nowrap;
+  display: flex;
+  padding-left: 2%;
+}
+.related-video-button image{
+  flex: 1;
+  height: 100%; 
+}
+.related-video-button-text-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 3.5;
+  padding-left: 2%;
+} 
+.related-video-button-name{
+  font-size: 14px;
+  line-height: 14px;
+  text-align: left;
+}
+.related-video-button-subname{
+  color: gray;
+  font-size: 12px;
+  line-height: 12px;
+}
+.related-vedio-header{
+  height: 30px;
+  display: flex;
+  align-items: center;
+  background-color: rgb(237,239,241);
+  padding-left: 2%;
+}
+.related-vedio-header text{
+  font-size: 15px;
+  color: gray;
+}

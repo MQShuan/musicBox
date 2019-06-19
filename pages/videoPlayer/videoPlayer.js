@@ -1,91 +1,104 @@
-// pages/vedioPlayer/vedioPlayer.js
+// pages/videoPlayer/videoPlayer.js
 const md5 = require('../../utils/md5.js')
+const reg = /^[0-9]+.?[0-9]*$/;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    vedioInfo:'',
-    vedioUrl:'',
-    relatedVedio:'',
+    videoInfo:'',
+    videoUrl:'',
+    relatedVideo:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if(options.mv){
+    if (reg.test(options.vid)){
       this.getMvDetail(options);
     }else{
-      this.getVedioDetail(options);
+      this.getVideoDetail(options);
     }
   },
 
   mvComment:function(){
-    let imageUrl = encodeURIComponent(this.data.mvInfo.cover)
+    let imageUrl = encodeURIComponent(this.data.videoInfo.cover)
     wx.navigateTo({
-      url: '../comment/comment?type=mv&id=' + this.data.mvInfo.id + '&imageUrl=' + imageUrl + '&name=' +this.data.mvInfo.name,
+      url: '../comment/comment?type=mv&id=' + this.data.videoInfo.id + '&imageUrl=' + imageUrl + '&name=' +this.data.videoInfo.name,
     })
   },
   getMvDetail: function (options){
     wx.request({
-      url: 'http://localhost:3000/mv/detail?mvid=' + options.mv,//获取MV详情
+      url: 'http://localhost:3000/mv/detail?mvid=' + options.vid,//获取MV详情
       success: (res) => {
         console.log(res.data);
         this.setData({
-          vedioInfo: res.data.data,
+          videoInfo: res.data.data,
         })
       }
     });
     wx.request({
-      url: 'http://localhost:3000/mv/url?id=' + options.mv,//获取MV播放URL
+      url: 'http://localhost:3000/mv/url?id=' + options.vid,//获取MV播放URL
       success: (res) => {
         this.setData({
-          vedioUrl: res.data.data.url,
+          videoUrl: res.data.data.url,
         })
       }
     })
     wx.request({//获取MV相关视频
-      url: 'http://localhost:3000/related/allvideo?id=' + options.mv,
+      url: 'http://localhost:3000/related/allvideo?id=' + options.vid,
       success: (res) => {
         this.setData({
-          relatedVedio:res.data.data,
+          relatedVideo:res.data.data,
         })
         console.log(res.data);
       }
     })
   },
-  getVedioDetail: function (options){
+  getVideoDetail: function (options){
     wx.request({
-      url: 'http://localhost:3000/video/detail?id=' + md5.hexMD5(options.vid),
+      url: 'http://localhost:3000/video/detail?id=' + options.vid,
       success:(res)=>{
         console.log(res.data);
+        let video = this.handleVideoDetail(res.data.data)
+        console.log(video);
         this.setData({
-          vedioInfo: res.data.data,
+          videoInfo: video,
         })
       }
     })
     wx.request({
-      url: 'http://localhost:3000/video/url?id=' + md5.hexMD5(options.vid),
+      url: 'http://localhost:3000/video/url?id=' + options.vid,
       success:(res)=>{
-        console.log(res.data);
+        console.log(res.data)
+        this.setData({
+          videoUrl: res.data.urls[0].url,
+        })
       }
     })
     wx.request({
       url: 'http://localhost:3000/related/allvideo?id=' + options.vid,
       success:(res)=>{
         this.setData({
-          relatedVedio: res.data.data,
+          relatedVideo: res.data.data,
         })
       }
     })
   },
-  relatedVedio:function(e){
+  relatedVideo:function(e){
     console.log(e);
     wx.navigateTo({
-      url: 'vedioPlayer?vid=' + e.currentTarget.dataset.vid ,
+      url: 'videoPlayer?vid=' + e.currentTarget.dataset.vid ,
     })
+  },
+  handleVideoDetail:function(data){//对视频详情获取的数据进行处理
+    data.name = data.title;
+    data.playCount = data.playTime;
+    data.likeCount = data.praisedCount;
+    data.subCount = data.subscribeCount;
+    return data;
   },
   onReady: function () {
 

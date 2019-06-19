@@ -1,4 +1,11 @@
-
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  flex-direction: column;
+  flex: 1;
+}
 .login-container{
   display: flex;
   justify-content: center;
@@ -7,13 +14,26 @@
 }
 .login-input{
   flex:1;
-  border: 2rpx solid gainsboro;
-  border-radius: 5%;
+  margin-left: 2%;
 }
-.login-input-view{
+.login-input-container{
   display: flex;
   flex: 1;
   flex-wrap: nowrap;
   align-items: center;
   margin-top: 10rpx;
+}
+
+.login-input-view{
+  border: 2rpx solid gainsboro;
+  border-radius: 50rpx;
+}
+.login-button{
+  border-radius: 50rpx;
+  margin-top: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(198, 47, 47);
+  color:#fff;
 }

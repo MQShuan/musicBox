@@ -1,14 +1,14 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/main-index/main-index",
     "pages/index/index",
     "pages/accountMusic/accountMusic",
-    "pages/login/login",
     "pages/logs/logs",
     "pages/playListPage/playListPage",
     "pages/audioPlayer/audioPlayer",
     "pages/comment/comment",
-    "pages/vedioPlayer/vedioPlayer",
+    "pages/videoPlayer/videoPlayer",
     "pages/playRecord/playRecord",
     "pages/search/search"
   ],

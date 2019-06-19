@@ -79,7 +79,7 @@ Component({
     },
     mvPage:function(){
       wx.navigateTo({
-        url: '../../pages/vedioPlayer/vedioPlayer?mv=' + this.data.mv,
+        url: '../../pages/videoPlayer/videoPlayer?vid=' + this.data.mv,
       })
     }
   }

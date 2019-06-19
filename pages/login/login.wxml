@@ -1,18 +1,22 @@
-<view>
+<view class='container' style="height:{{height}}px">
   <form bindsubmit="formSubmit" class='login-container'>
-    <view class='login-input-view'>
+    <view class='login-input-container'>
       <text>账号:</text>
-      <input name="email" class='login-input'></input>
+      <view class='login-input-view'>
+        <input name="email" class='login-input'></input>     
+      </view>
     </view>
-    <view class='login-input-view'>
+    <view class='login-input-container'>
       <text>密码:</text>
-      <input 
-        name="password"  
-        class='login-input'
-        password="ture">
-      </input>
+      <view class='login-input-view'>
+        <input 
+          name="password"  
+          class='login-input'
+          password="ture">
+        </input>      
+      </view>
     </view>
-    <button form-type='submit'>登陆</button>
+    <button form-type='submit' class='login-button'>登陆</button>
   </form>
   <button bindtap='logout'>注销</button>
   <button bindtap='toIndex'>首页</button>
