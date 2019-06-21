@@ -1,15 +1,18 @@
 Component({
   data: {
-    selected: 0,
+    selected: 1,
+    selectedIndex:1,
     color: "gray",
     selectedColor: "#fff",
-    list: [{
-      pagePath: "/pages/main-index/main-index",
-      text: "iconfont icon-shipin icon"
-    }, {
+    list: [ {
       pagePath: "/pages/accountMusic/accountMusic",
       text: "iconfont icon-yinle icon"
-    },{
+    },
+    {
+      pagePath: "/pages/main-index/main-index",
+      text: "iconfont icon-shipin icon"
+    },
+    {
       pagePath: "/pages/search/search",
       text: "iconfont icon-chazhao icon"
     }]
@@ -23,7 +26,7 @@ Component({
       const url = data.path
       wx.switchTab({url})
       this.setData({
-        selected: data.index
+        selected: data.index,
       })
     }
   }

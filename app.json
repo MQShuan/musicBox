@@ -10,18 +10,19 @@
     "pages/comment/comment",
     "pages/videoPlayer/videoPlayer",
     "pages/playRecord/playRecord",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/rcSongList/rcSongList"
   ],
   "tabBar": {
     "custom": true,
     "list": [
       {
-        "pagePath": "pages/main-index/main-index",
-        "text": "iconfont icon-shipin icon"
-      },
-      {
         "pagePath": "pages/accountMusic/accountMusic",
         "text": "iconfont icon-yinle icon"
+      },
+      {
+        "pagePath": "pages/main-index/main-index",
+        "text": "iconfont icon-shipin icon"
       },
       {
         "pagePath": "pages/search/search",

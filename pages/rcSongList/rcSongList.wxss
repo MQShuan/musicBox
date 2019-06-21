@@ -1,0 +1,44 @@
+/* pages/rcSongList/rcSongList.wxss */
+.gird-title{
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  height: 30px;
+  font-size: 14px;
+  margin-left: 1%;
+}
+.gird-container{
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.gird-col{
+  flex: 0 0 auto;
+  width: 48.5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: auto;
+  position: relative;
+}
+.gird-col text{
+  font-size: 11.5px;
+  text-align:left;
+  line-height: 15px;
+}
+.gird-col image{
+  border-radius: 3%;
+
+}
+.gird-top-tag{
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  color: #fff;
+  font-size: 10px;
+}

@@ -14,7 +14,7 @@
     </view>
     <view class='video-info-button-row'>
       <button class='video-info-button'>
-        <text>点赞</text>
+        <text class='iconfont icon-zan'></text>
         <text>{{videoInfo.likeCount}}</text>
       </button>
       <button class='video-info-button'>

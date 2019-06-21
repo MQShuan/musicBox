@@ -14,6 +14,7 @@ Page({
         url: 'http://localhost:3000/personalized',
         success: (res) => {
           let songListPart = [];
+          console.log(res.data);
           for (let i = 0; i < 6; i++) {
             songListPart[i] = res.data.result[i];
             if(songListPart[i].playCount>100000){
@@ -58,4 +59,9 @@ Page({
       url: '../playListPage/playListPage?id=' + e.currentTarget.dataset.songlistid,
     })
   },
+  rcSongList:function(){
+    wx.navigateTo({
+      url: '../rcSongList/rcSongList',
+    })
+  }
 })

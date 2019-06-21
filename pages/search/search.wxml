@@ -10,7 +10,7 @@
     </view>
     <view class='search-header'>
         <button class='search-header-right-button' bindtap='search'>
-          <text>搜索</text>
+          <text class='iconfont icon-chazhao'></text>
         </button>
         <input
           confirm-type="search"
@@ -24,7 +24,7 @@
           class='search-header-right-button' 
           bindtap='clear'
           wx:if="{{inputValue}}">
-          <text>i</text>
+          <text class='iconfont icon-guanbi '></text>
         </button>
     </view>
   <view wx:if="{{!showSearchResult}}" style="margin-top:108px;">

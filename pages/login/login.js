@@ -35,7 +35,7 @@ Page({
     })
   },
   toIndex:function(){
-    wx.navigateTo({
+    wx.switchTab({
       url: '../main-index/main-index',
     });
   },

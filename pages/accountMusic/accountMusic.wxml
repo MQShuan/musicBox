@@ -7,25 +7,15 @@
         <image class='avater' src="{{avatarUrl}}"></image>
         <text class='user-button-name'>{{userName}}</text>
       </button>
-      <button class='vip'>
-        <image ></image>
-      </button>
     </view>
-    <button class='become-vip'>开通会员</button>
   </view>
   <view>
-      <button class='row-button'>
-        <view class='row-button-view'>
-          <text class='iconfont icon-iconset0481'></text>
-          <text class='row-button-view-title'>我的收藏</text> 
-        </view>
-      </button>
-      <button class='row-button' bindtap='playRecordPage'>
-        <view class='row-button-view'>
-          <text class="iconfont icon-iconset0481"></text>
-          <text class='row-button-view-title'>最近播放</text>
-        </view>
-      </button>
+    <button class='row-button' bindtap='playRecordPage'>
+      <view class='row-button-view'>
+        <text class="iconfont icon-iconset0481"></text>
+        <text class='row-button-view-title'>最近播放</text>
+      </view>
+    </button>
     </view>
     <view>
       <view class='song-list-header'>

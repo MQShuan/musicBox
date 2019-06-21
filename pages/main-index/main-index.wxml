@@ -33,7 +33,7 @@
       </block>
     </swiper>
     <view>
-      <button class='gird-title'>
+      <button class='gird-title' bindtap='rcSongList'>
         <text style="font-weight:900;color:rgb(8,15,23);">推荐歌单</text>
         <text style="color:gray">></text>
       </button>
