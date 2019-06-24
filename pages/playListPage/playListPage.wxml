@@ -33,7 +33,7 @@
       </view>
     </view>
   </view>
-  <view wx:for="{{songList}}">
+  <view wx:for="{{songList}}" wx:for-index="index">
     <row-button
       name="{{item.songName}}"
       subName="{{item.authorName}}"
@@ -42,6 +42,8 @@
       bind:modalevent="showModalEvent"
       mv="{{item.mv}}"
       coverImageUrl="{{item.al.picUrl}}"
+      index="{{index}}"
+      tracks="{{trackIds}}"
     />
   </view>
   <modal showModal="{{visible}}">

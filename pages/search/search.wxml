@@ -37,7 +37,7 @@
     </view>
   </view>
   <view wx:if="{{showSearchResult}}" style="margin-top:108px;">
-    <view wx:for="{{resultList}}">
+    <view wx:for="{{resultList}}" wx:for-index="index">
       <row-button
         name="{{item.songName}}"
         subName="{{item.authorName}}"
@@ -46,6 +46,7 @@
         bind:modalevent="showModalEvent"
         mv="{{item.mvid}}"
         coverImageUrl="{{item.album.artist.img1v1Url}}"
+        index="{{index}}"
       />
     </view>
   </view>

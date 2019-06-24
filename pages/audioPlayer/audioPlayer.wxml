@@ -12,10 +12,62 @@
       <text class='iconfont icon-share header-center-name'></text>
     </button>
   </view>
-  <customize-audio 
-    musicSrc="{{currentMusicUrl}}"
-    musicId="{{dataId}}"
-    coverImageUrl="{{coverImageUrl}}"
-  />
+  <view>
+  <view 
+    wx:if="{{!showLyric}}" 
+    class='disk-container' 
+    style="height:{{scrollHeight}}px" 
+    bindtap='changeShowLyric'>
+    <image 
+      class="{{playState?'disk scroll-disk-music-on':'disk'}}"
+      style="height:{{windowWidth}}px;width:{{windowWidth}}px"
+      src="{{coverImageUrl}}"></image>
+  </view>
+  <scroll-view 
+    style="height:{{scrollHeight}}px"
+    class='music-container-sv'
+    scroll-y='true'
+    scroll-into-view="item{{currentLyricScrollToRow}}"
+    wx:if="{{showLyric}}"
+    bindtap='changeShowLyric'
+    >
+      <view 
+        wx:for="{{musiclyric}}"  
+        wx:for-index="index" 
+        class="music-lyric-row"  
+        id="item{{index}}" >
+        <text  
+          class="{{currentLyric == index?'music-lyric-selected':'music-lyric-select'}}">
+          {{item[1]}}
+        </text>
+      </view>
+  </scroll-view>
+  <view class='slider-row'>
+    <view  class='slider-text'>
+        <text>{{currentMin}}:{{currentSec}}</text>
+    </view>
+    <view class='slider-view'>
+      <slider 
+        bindchange='changeDuration' 
+        value="{{sliderDuration}}"
+        block-size="12"
+        max="200"
+        activeColor="rgb(198, 47, 47)"
+        backgroundColor="rgb(237,239,241)"
+        ></slider>
+    </view>
+    <view class='slider-text'>
+      <text>{{formatDuration}}</text>
+    </view>
+  </view>
+  <view class="button-row">
+      <view class="button-block"><button><text>⭐</text></button></view>
+      <view class="button-block"><button bindtap='preSong'><text class='iconfont icon-md-skip-backward play-icon'></text></button></view>
+      <view class="button-block"><button bindtap='audioState'>
+        <text class="{{playState?'iconfont icon-timeout play-icon':'iconfont icon-play-circle play-icon'}}"></text></button></view>
+      <view class="button-block"><button bindtap='nextSong'><text class='iconfont icon-md-skip-forward play-icon'></text></button></view>
+      <view class="button-block"><button><text>⭐</text></button></view>
+    </view>
+</view>
 </view>
 

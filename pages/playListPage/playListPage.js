@@ -75,6 +75,7 @@ Page({
           songList:res.data.playlist.tracks,
           songListDetail:res.data.playlist,
           userId:wx.getStorageSync('uid'),
+          trackIds: res.data.playlist.trackIds,
         })
       }
     })

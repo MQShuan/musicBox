@@ -45,12 +45,16 @@
 }
 .row-view-block-left-icon{
   display: flex;
-  flex:1;
-  margin: 0;
+  margin: auto 0;
   padding: 0;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+.row-view-block-left-icon text{
+  color: rgb(237,239,241);
+  font-size: 12px;
+  font-weight: 700;
 }
 .left-image-view{
   display: flex;

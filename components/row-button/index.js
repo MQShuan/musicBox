@@ -8,9 +8,9 @@ Component({
       type:Number,
       value:'',
     },
-    isSearch:{
-      type:Boolean,
-      value:false,
+    index:{
+      type:Number,
+      value:'',
     },
     modalFunc:{
       type:Function,
@@ -43,6 +43,10 @@ Component({
     coverImageUrl:{
       type:String,
       value:'',
+    },
+    tracks:{
+      type:Array,
+      value:'',
     }
   },
   lifetimes:{
@@ -62,13 +66,16 @@ Component({
     detailPage:function(e){
       if(this.data.rowType==='song'){
         wx.navigateTo({
-          url: '../../pages/audioPlayer/audioPlayer?id=' + this.data.dataId+'&songName='+this.data.name+'&authorName='+this.data.subName
-            + '&coverImageUrl=' + encodeURIComponent(this.data.coverImageUrl),
+          url: '../../pages/audioPlayer/audioPlayer?id=' + this.data.dataId +'&index=' + this.data.index,
         })
       }else{
         wx.navigateTo({
           url: '../../pages/playListPage/playListPage?id=' + this.data.dataId,
         })
+      }
+      if(this.data.tracks){
+        let songList = this.data.tracks;
+        wx.setStorageSync('songList', songList)
       }
     },
     moreTap:function(){
