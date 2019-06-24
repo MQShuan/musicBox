@@ -1,9 +1,6 @@
 <!--components/row-button/index.wxml-->
 <view class='container'>
   <button class='row-view-block-left' bindtap='detailPage'>
-    <view wx:if="{{index}}" class='row-view-block-left-icon'>
-      <text>{{index}}</text>
-    </view>
     <view wx:if="{{leftImage!==''}}" class='left-image-view'>
       <image class='left-image' src='{{leftImage}}'></image>
     </view>

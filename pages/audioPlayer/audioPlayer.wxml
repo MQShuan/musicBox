@@ -23,12 +23,13 @@
       style="height:{{windowWidth}}px;width:{{windowWidth}}px"
       src="{{coverImageUrl}}"></image>
   </view>
-  <scroll-view 
+  <view wx:if="{{showLyric}}">
+    <scroll-view 
     style="height:{{scrollHeight}}px"
     class='music-container-sv'
     scroll-y='true'
     scroll-into-view="item{{currentLyricScrollToRow}}"
-    wx:if="{{showLyric}}"
+    wx:if="{{musiclyric}}"
     bindtap='changeShowLyric'
     >
       <view 
@@ -41,7 +42,16 @@
           {{item[1]}}
         </text>
       </view>
-  </scroll-view>
+    </scroll-view>
+    <view 
+      wx:if="{{!musiclyric}}"
+      style="height:{{scrollHeight}}px"
+      class='music-container-lyric-none'
+    >
+      <text>暂无歌词</text>
+    </view>
+  </view>
+  
   <view class='slider-row'>
     <view  class='slider-text'>
         <text>{{currentMin}}:{{currentSec}}</text>
@@ -61,11 +71,26 @@
     </view>
   </view>
   <view class="button-row">
-      <view class="button-block"><button><text>⭐</text></button></view>
-      <view class="button-block"><button bindtap='preSong'><text class='iconfont icon-md-skip-backward play-icon'></text></button></view>
-      <view class="button-block"><button bindtap='audioState'>
-        <text class="{{playState?'iconfont icon-timeout play-icon':'iconfont icon-play-circle play-icon'}}"></text></button></view>
-      <view class="button-block"><button bindtap='nextSong'><text class='iconfont icon-md-skip-forward play-icon'></text></button></view>
+      <view class="button-block">
+        <button bindtap='changePlayMode'>
+          <text class="iconfont play-icon {{playMode === 'list'?'icon-xunhuanbofang':'icon-suijibofang'}}"></text>
+        </button>
+      </view>
+      <view class="button-block">
+        <button bindtap='preSong'>
+          <text class='iconfont icon-md-skip-backward play-icon'></text>
+        </button>
+      </view>
+      <view class="button-block">
+        <button bindtap='audioState'>
+          <text class="{{playState?'iconfont icon-timeout play-icon':'iconfont icon-play-circle play-icon'}}"></text>
+        </button>
+      </view>
+      <view class="button-block">
+        <button bindtap='nextSong'>
+          <text class='iconfont icon-md-skip-forward play-icon'></text>
+        </button>
+      </view>
       <view class="button-block"><button><text>⭐</text></button></view>
     </view>
 </view>

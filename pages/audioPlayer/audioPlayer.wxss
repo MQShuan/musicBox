@@ -91,7 +91,13 @@
   display: flex;
   justify-content: center;
 }
-
+.music-container-lyric-none{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: rgb(237,239,241);
+}
 .music-lyric-row{
   display: flex;
   justify-content: center;

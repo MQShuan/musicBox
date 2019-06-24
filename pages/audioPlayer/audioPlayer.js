@@ -1,8 +1,4 @@
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     musicId:'',
     songName:'',
@@ -23,6 +19,7 @@ Page({
     widowWidth: '',
     currentSongIndex:'',
     songList:'',
+    playMode:'list',
   },
 
   /**
@@ -68,15 +65,23 @@ Page({
     this.getMusicDetail();
     this.getLyric();
   },
-  changeSong:function(tapType){//切换歌曲处理
+  changeSong:function(changeType){//切换歌曲处理
     let currentSongIndex = this.data.currentSongIndex;
-    if(tapType === 'pre'){
-      currentSongIndex - 1 < 0 ?currentSongIndex = this.data.songList.length - 1:currentSongIndex = currentSongIndex - 1;
-      this.setData({
-        currentSongIndex:currentSongIndex,
-      })
-    }else if(tapType === 'next'){
-      currentSongIndex + 1 > this.data.songList.length ? currentSongIndex = 0:currentSongIndex = currentSongIndex + 1;
+    if(this.data.playMode === 'list'){
+      if (changeType === 'pre') {
+        currentSongIndex - 1 < 0 ? currentSongIndex = this.data.songList.length - 1 : currentSongIndex = currentSongIndex - 1;
+        this.setData({
+          currentSongIndex: currentSongIndex,
+        })
+      } else if (changeType === 'next') {
+        currentSongIndex + 1 > this.data.songList.length ? currentSongIndex = 0 : currentSongIndex = currentSongIndex + 1;
+        this.setData({
+          currentSongIndex: currentSongIndex,
+        })
+      }
+    }
+    else if(this.data.playMode === 'random'){
+      currentSongIndex = Math.floor(Math.random() * this.data.songList.length );
       this.setData({
         currentSongIndex:currentSongIndex,
       })
@@ -134,10 +139,22 @@ Page({
   onUnload: function () {
 
   },
-  createBackgroundAudio: function () {//创建播放实例，获取歌词，播放进度，播放时间以及歌词，支持歌词滚动
-    console.log(this.data.currentMusicUrl);
+  createBackgroundAudio: function () {//创建播放实例，监控播放状态，获取歌词，播放进度，播放时间以及歌词，支持歌词滚动
     wx.playBackgroundAudio({
       dataUrl: this.data.currentMusicUrl,
+    })
+    wx.onBackgroundAudioStop(() => {
+        this.nextSong()
+    })
+    wx.onBackgroundAudioPlay(()=>{
+      this.setData({
+        playState:true,
+      })
+    })
+    wx.onBackgroundAudioPause(()=>{
+      this.setData({
+        playState:false,
+      })
     })
     this.audio = wx.getBackgroundAudioManager();
     this.audio.onTimeUpdate((res) => {
@@ -165,12 +182,6 @@ Page({
     }
     this.setData({
       playState: !this.data.playState,
-    });
-  },
-  audioStop: function () {
-    this.audio.stop();
-    this.setData({
-      playState: false,
     });
   },
   getSliderNow: function (audio) {//即时播放时间转换为slider进度
@@ -202,13 +213,15 @@ Page({
     wx.request({
       url: 'http://localhost:3000/lyric?id=' + this.data.musicId,
       success: (res) => {
-        musiclyric = res.data.lrc.lyric.split('[');
-        for (let i = 0; i < musiclyric.length; i++) {
-          musiclyric[i] = musiclyric[i].split(']');
-          if (musiclyric[i].length > 1) {
-            musiclyric[i][0] = musiclyric[i][0].substring(0, 5);
-            musiclyric[i][1] = musiclyric[i][1].replace("↵", "");
-            musiclyric[i][2] = i;
+        if (res.data.lrc.lyric){
+          musiclyric = res.data.lrc.lyric.split('[');
+          for (let i = 0; i < musiclyric.length; i++) {
+            musiclyric[i] = musiclyric[i].split(']');
+            if (musiclyric[i].length > 1) {
+              musiclyric[i][0] = musiclyric[i][0].substring(0, 5);
+              musiclyric[i][1] = musiclyric[i][1].replace("↵", "");
+              musiclyric[i][2] = i;
+            }
           }
         }
         this.setData({
@@ -251,5 +264,16 @@ Page({
     this.setData({
       showLyric: !this.data.showLyric,
     })
+  },
+  changePlayMode: function () {//修改播放模式
+    if(this.data.playMode === 'list'){
+      this.setData({
+        playMode:'random'
+      })
+    }else{
+      this.setData({
+        playMode:'list',
+      })
+    }
   }
 })
