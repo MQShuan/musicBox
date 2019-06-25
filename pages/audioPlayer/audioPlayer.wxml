@@ -91,7 +91,7 @@
           <text class='iconfont icon-md-skip-forward play-icon'></text>
         </button>
       </view>
-      <view class="button-block"><button><text>⭐</text></button></view>
+      <view class="button-block"><button><text class='iconfont icon-bofangliebiao play-icon'></text></button></view>
     </view>
 </view>
 </view>

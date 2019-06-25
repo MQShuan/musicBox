@@ -18,7 +18,7 @@
         <text class='songlist-button-text'>评论</text></button>
       </view>
       <view class='songlist-button-block'>
-        <button class='songlist-button'>
+        <button class='songlist-button' >
           <text class='iconfont icon-share songlist-button-icon'></text>
           <text class='songlist-button-text'>分享</text></button>
       </view>

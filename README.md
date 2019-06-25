@@ -1,18 +1,30 @@
-网易云音乐仿写（微信小程序版本）
+网易云音乐仿写精简版本（微信小程序）
 ===
 
 API来自[网易云音乐API](https://github.com/Binaryify/NeteaseCloudMusicApi)
 
 __本仿写小程序为学习练习项目，仅作为学习参考__
 
+**project.config已gitignore,基础库版本为2.7.1,没有配置修改，请自行添加project.config**
+
 **注意**
 
-1.播放组件slider拖动进度部分，微信小程序基础库2.6.0以上版本会出现问题，拖动进度条后监听播放的onTimeUpdate会失效，考虑重写全局的播放组件，弃用现API
+1.播放组件获取duration存在获取不到或者延迟获取的问题(需等待官方解决)
 
-2.播放组件获取duration存在获取不到的问题
+2.微信小程序自定义tab存在切换时屏幕闪烁问题，并且已选中项高亮有BUG，会跳到其他未选择项上(需等待官方解决)
 
-3.微信小程序自定义tab存在切换时屏幕闪烁问题，并且已选中项高亮有BUG，会跳到其他未选择项上
+3.部分需要登录才能使用的接口，如从歌单中删除歌曲等，会报错301，详情参照网易云音乐API的文档中的解决方案解决
 
-4.部分需要登录才能使用的接口，如从歌单中删除歌曲等，会报错301，详情参照网易云音乐API的文档中的解决方案解决
+**4.歌单中分享，下载，多选尚未实现，当前仅实现查看评论相关功能**
 
+**首页以及播放相关页面**
 
+![img](https://github.com/partysu/musicBox/images/player.gif)
+
+**用户歌单页面**
+
+![img](https://github.com/partysu/musicBox/images/songList.gif)
+
+**搜索页面**
+
+![img](https://github.com/partysu/musicBox/images/search.gif)

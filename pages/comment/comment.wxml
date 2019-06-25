@@ -53,7 +53,7 @@
                 </view>
               </view>
               <view>
-                <text style="font-size:22rpx;color:gray;">{{item.likedCount}}⭐</text>
+                <text style="font-size:22rpx;color:gray;" class='iconfont icon-zan'>{{item.likedCount}}</text>
               </view>
             </view>
             <view class='comment-content'>
