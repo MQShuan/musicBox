@@ -19,12 +19,12 @@ __本仿写小程序为学习练习项目，仅作为学习参考__
 
 **首页以及播放相关页面**
 
-![img](https://github.com/partysu/musicBox/images/player.gif)
+![img](https://github.com/partysu/musicBox/blob/master/images/player.gif)
 
 **用户歌单页面**
 
-![img](https://github.com/partysu/musicBox/images/songList.gif)
+![img](https://github.com/partysu/musicBox/blob/master/images/songList.gif)
 
 **搜索页面**
 
-![img](https://github.com/partysu/musicBox/images/search.gif)
+![img](https://github.com/partysu/musicBox/blob/master/images/search.gif)
