@@ -28,6 +28,7 @@
   left: 0%;
   flex-direction: column;
   z-index: 10000;
+  border-radius: 15px 15px 0 0;
 }
 .footer{
   display: flex;

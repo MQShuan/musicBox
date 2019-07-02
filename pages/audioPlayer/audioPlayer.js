@@ -20,6 +20,8 @@ Page({
     currentSongIndex:'',
     songList:'',
     playMode:'list',
+    showSongList:false,
+    songListHeight:'',
   },
 
   /**
@@ -31,6 +33,7 @@ Page({
         this.setData({
           scrollHeight: res.windowHeight - 150,
           windowWidth: res.windowWidth - 100,
+          songListHeight: res.windowHeight/2,
         })
       },
     })
@@ -42,15 +45,6 @@ Page({
     console.log(this.data.songList);
     this.getMusicDetail();
     this.getLyric();
-    /* wx.request({
-      url: 'http://localhost:3000/song/detail?ids=' + options.id,
-      success: (res) => {
-        console.log(res.data);
-        this.setData({
-          currentMusicUrl: res.data.data[0].url,
-        })
-      }
-    }) */
   },
   back:function(e){
     wx.navigateBack({
@@ -109,7 +103,6 @@ Page({
           }
         }
         songDetail.authorName = arName + '-' + songDetail.al.name;
-        console.log(songDetail);
         this.setData({
           coverImageUrl: songDetail.al.picUrl,
           songName: songDetail.songName,
@@ -126,18 +119,6 @@ Page({
         this.createBackgroundAudio();
       }
     })
-  },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
   },
   createBackgroundAudio: function () {//创建播放实例，监控播放状态，获取歌词，播放进度，播放时间以及歌词，支持歌词滚动
     wx.playBackgroundAudio({
@@ -189,7 +170,6 @@ Page({
     this.setData({
       sliderDuration: sliderNow,
     });
-    console.log(sliderNow);
   },
   getCurrentDuration: function (audio) {//转换currentTime为分秒显示
     let min;
@@ -208,28 +188,43 @@ Page({
       currentSec: sec,
     })
   },
-  getLyric: function () {//获取歌词对歌词进行正则处理
+  getLyric: function () {//获取歌词，存在歌词翻译时添加上歌词翻译
     let musiclyric = '';
+    let musicTlyric = '';
     wx.request({
       url: 'http://localhost:3000/lyric?id=' + this.data.musicId,
       success: (res) => {
         if (res.data.lrc.lyric){
-          musiclyric = res.data.lrc.lyric.split('[');
-          for (let i = 0; i < musiclyric.length; i++) {
-            musiclyric[i] = musiclyric[i].split(']');
-            if (musiclyric[i].length > 1) {
-              musiclyric[i][0] = musiclyric[i][0].substring(0, 5);
-              musiclyric[i][1] = musiclyric[i][1].replace("↵", "");
-              musiclyric[i][2] = i;
+            musiclyric = this.handleLyric(res.data.lrc.lyric);
+        }
+        if(res.data.tlyric.lyric){
+          musicTlyric = this.handleLyric(res.data.tlyric.lyric);
+          for(let i = 0;i<musiclyric.length;i++){
+            for (let j = 0; j < musicTlyric.length; j++){
+              if (musiclyric[i][0] == musicTlyric[j][0]) {
+                musiclyric[i][3] = musicTlyric[j][1];
+              }
             }
           }
         }
+        musiclyric[0] = '';
         this.setData({
-          musiclyric: musiclyric,
+          musiclyric:musiclyric,
         })
-        console.log(musiclyric);
       }
     })
+  },
+  handleLyric: function (lyric) {//获取歌词对歌词进行正则处理
+    lyric = lyric.split('[');
+    for (let i = 0; i < lyric.length; i++) {
+      lyric[i] = lyric[i].split(']');
+      if (lyric[i].length > 1) {
+        lyric[i][0] = lyric[i][0].substring(0, 5);
+        lyric[i][1] = lyric[i][1].replace("↵", "");
+        lyric[i][2] = i;
+      }
+    }
+    return lyric;
   },
   lyricScroll: function () {//歌词滚动
     let currentTime = this.data.currentMin + ':' + this.data.currentSec;
@@ -275,5 +270,18 @@ Page({
         playMode:'list',
       })
     }
-  }
+  },
+  showSongListModal:function(){
+    this.setData({
+      showSongList:true,
+    })
+  },
+  playSong:function(e){
+    console.log(e);
+    this.setData({
+      musicId:e.currentTarget.dataset.id,
+    })
+    this.getMusicDetail();
+    this.getLyric();
+  },
 })

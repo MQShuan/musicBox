@@ -41,12 +41,16 @@
           class="{{currentLyric == index?'music-lyric-selected':'music-lyric-select'}}">
           {{item[1]}}
         </text>
+        <text class="{{currentLyric == index?'music-lyric-selected':'music-lyric-select'}}">
+          {{item[3]}}
+        </text>
       </view>
     </scroll-view>
     <view 
       wx:if="{{!musiclyric}}"
       style="height:{{scrollHeight}}px"
       class='music-container-lyric-none'
+      bindtap='changeShowLyric'
     >
       <text>暂无歌词</text>
     </view>
@@ -91,8 +95,31 @@
           <text class='iconfont icon-md-skip-forward play-icon'></text>
         </button>
       </view>
-      <view class="button-block"><button><text class='iconfont icon-bofangliebiao play-icon'></text></button></view>
+      <view class="button-block">
+        <button bindtap='showSongListModal'>
+          <text class='iconfont icon-bofangliebiao play-icon'></text>
+        </button>
+      </view>
     </view>
 </view>
+<modal
+  showModal="{{showSongList}}"
+>
+  <scroll-view 
+    slot="modalContent
+    style="height:{{songListHeight}}px"
+    scroll-y="true"
+
+  >
+    <view wx:for="{{songList}}" wx:for-index="index" >
+      <button 
+        data-id="{{item.id}}" 
+        bindtap='playSong'
+        class='song-list-row'>
+        <text>{{item.songName}}-{{item.authorName}}</text>
+      </button>
+    </view>
+  </scroll-view>
+</modal>
 </view>
 

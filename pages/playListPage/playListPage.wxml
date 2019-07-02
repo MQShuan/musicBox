@@ -43,7 +43,7 @@
       mv="{{item.mv}}"
       coverImageUrl="{{item.al.picUrl}}"
       index="{{index}}"
-      tracks="{{trackIds}}"
+      tracks="{{tracks}}"
     />
   </view>
   <modal showModal="{{visible}}">
@@ -67,6 +67,7 @@
           <text class='modal-button-icon iconfont icon-unie601'></text>
           <text class='modal-button-title'>删除</text>
         </button>
+        
       </view>
   </modal>
 </view>

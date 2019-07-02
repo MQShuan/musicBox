@@ -100,14 +100,42 @@
 }
 .music-lyric-row{
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 38px;
+  margin-top: 19px;
+}
+.music-lyric-row text{
+  font-size: 16px;
+  height: 19px;
+  display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  text-align: center;
 }
 .music-lyric-select{
   color: gray;
 }
 .music-lyric-selected{
   color: #fff;
+}
+.song-list-row{
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding-left: 1%;
+  border-bottom: 1px solid rgb(237,239,241);
+}
+.song-list-row text{
+  font-size: 15px;
+  line-height: 15px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .disk-container{
   display: flex;
