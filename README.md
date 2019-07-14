@@ -15,9 +15,13 @@ __本仿写小程序为学习练习项目，仅作为学习参考__
 
 3.部分需要登录才能使用的接口，如从歌单中删除歌曲等，会报错301，详情参照网易云音乐API的文档中的解决方案解决
 
-**4.歌单中分享，下载，多选尚未实现，当前仅实现查看评论相关功能**
+**4.歌单中分享，下载，多选尚未实现，当前仅实现查看评论相关功能,首页推荐朋友电台三个模块，仅完成推荐模块**
 
-**首页以及播放相关页面**
+**首页**
+
+![img](https://github.com/partysu/musicBox/blob/master/images/index.png)
+
+**播放页面**
 
 ![img](https://github.com/partysu/musicBox/blob/master/images/player.gif)
 

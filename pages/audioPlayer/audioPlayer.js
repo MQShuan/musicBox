@@ -55,6 +55,7 @@ Page({
     this.setData({
       songList: wx.getStorageSync('songList'),
       musicId:this.data.songList[this.data.currentSongIndex].id,
+      
     })
     this.getMusicDetail();
     this.getLyric();
@@ -196,16 +197,16 @@ Page({
       success: (res) => {
         if (res.data.lrc.lyric){
             musiclyric = this.handleLyric(res.data.lrc.lyric);
-        }
-        if(res.data.tlyric.lyric){
-          musicTlyric = this.handleLyric(res.data.tlyric.lyric);
-          for(let i = 0;i<musiclyric.length;i++){
-            for (let j = 0; j < musicTlyric.length; j++){
-              if (musiclyric[i][0] == musicTlyric[j][0]) {
-                musiclyric[i][3] = musicTlyric[j][1];
+            if (res.data.tlyric.lyric) {
+              musicTlyric = this.handleLyric(res.data.tlyric.lyric);
+              for (let i = 0; i < musiclyric.length; i++) {
+                for (let j = 0; j < musicTlyric.length; j++) {
+                  if (musiclyric[i][0] == musicTlyric[j][0]) {
+                    musiclyric[i][3] = musicTlyric[j][1];
+                  }
+                }
               }
             }
-          }
         }
         musiclyric[0] = '';
         this.setData({
