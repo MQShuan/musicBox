@@ -21,7 +21,7 @@ __本仿写小程序为学习练习项目，仅作为学习参考__
 
 ![img](https://github.com/partysu/musicBox/blob/master/images/index.png)
 
-**播放页面**
+**播放页面（GIF较大，请等待加载完毕，方能查看具体效果，未加载完毕时GIF显示卡顿）**
 
 ![img](https://github.com/partysu/musicBox/blob/master/images/player.gif)
 
